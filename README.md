@@ -1,2 +1,2 @@
-# sp-html-helper
+# SpHtmlHelper
 SpHtmlHelper is getting started.
