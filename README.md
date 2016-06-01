@@ -1,2 +1,2 @@
 # SpHtmlHelper
-SpHtmlHelper is getting started.
+SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
