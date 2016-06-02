@@ -1,14 +1,18 @@
 var SP = new SpHtmlHelper({
-	screenSize : 750,
-	domainName : 'www.sumonsarker.com'
+	debugMode 	: true,
+	screenSize 	: 750,
+	domainName 	: 'www.sumonsarker.com'
 });
 
-SP.menu({
+SP.addMultiSiteMenu({
 	multiSiteMenu 	: {
 		multiSiteMenu	: false,
 		languageString 	: '/en/'
-	},
-	containerId 	: 'SpHtmlHelperMenu',
+	}
+});
+
+SP.menu({
+	containerId 	: 'SpHtmlHelperMenus',
 	containerClass 	: '',
 	menuPosition 	: 0,
 	menuItems 		: [
