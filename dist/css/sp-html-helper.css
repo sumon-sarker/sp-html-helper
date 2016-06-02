@@ -25,10 +25,24 @@
 	width: 50px;
 	height: 40px;
 	margin: 5px;
+	cursor: pointer;
 }
 .SpHtmlHelperMenuHeader .SpHtmlHelperMenuBrand span{
 	display: block;
 	height: 5px;
 	background-color: white;
 	margin: 6px;
+}
+.SpHtmlHelperMenuContainer .SpHtmlHelperMenuItems{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	border-top: 5px solid black;
+}
+.SpHtmlHelperMenuContainer .SpHtmlHelperMenuItems li a{
+	text-decoration: none;
+	padding: 10px;
+	display: block;
+	margin-bottom: 2px;
+	background-color: pink;
 }

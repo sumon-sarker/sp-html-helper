@@ -14,12 +14,13 @@
 	SpHtmlHelper.prototype.menu = function(options) {
 		this.displayLog("SpHtmlHelper Menu Started!","font-size:20px");
 		var defaultOptions = {
+			multiSiteMenu 	: false,
 			containerId 	: 'SpHtmlHelper',
 			containerClass 	: 'SpHtmlHelper',
 			menuPosition 	: 0,	/*0,1,2,3,4,5,6,N*/
 			menuItems 		: [
 				{
-					item 		: 'SpHtmlHelper',
+					title 		: 'SpHtmlHelper',
 					link 		: '#',
 					css_class 	: 'active'
 				}
@@ -47,7 +48,26 @@
 	};
 
 	SpHtmlHelper.prototype.makeSpMenu = function(options){
-		
+		var items 		= options.menuItems;
+		var template	= '';
+		template = '<div class="SpHtmlHelperMenuContainer">';
+			template+= '<div class="SpHtmlHelperMenuHeader">';
+				template+='<div class="SpHtmlHelperMenuSiteLogo">';
+					template+='<img src="{SITE_LOGO}" alt="Sp Html Helper">';
+				template+='</div>';
+				template+='<div class="SpHtmlHelperMenuBrand">';
+					template+='<span></span>';
+					template+='<span></span>';
+					template+='<span></span>';
+				template+='</div>';
+				template+='</div>';
+			template+='<ul class="SpHtmlHelperMenuItems">';
+				for(var item in items){
+					template+='<li><a href="'+items[item].link+'">'+items[item].title+'</a></li>';
+				}
+				template+='<li><a href="#">ITEM 2</a></li>';
+			template+='</ul>';
+		template+='</div>';
 	}
 
 }());

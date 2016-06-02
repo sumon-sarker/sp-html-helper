@@ -9,12 +9,12 @@ SP.menu({
 	menuPosition 	: 0,
 	menuItems 		: [
 		{
-			item 		: 'SpHtmlHelper1',
+			title 		: 'SpHtmlHelper1',
 			link 		: '#',
 			css_class 	: 'first'
 		},
 		{
-			item 		: 'SpHtmlHelper2',
+			title 		: 'SpHtmlHelper2',
 			link 		: '#',
 			css_class 	: 'last'
 		},
