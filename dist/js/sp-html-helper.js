@@ -24,9 +24,7 @@
 
 	SpHtmlHelper.prototype.addMenu = function(options) {
 		var defaultOptions = {
-			containerId 	: 'SpHtmlHelper', 	/*First Priority*/
-			containerClass 	: 'SpHtmlHelper',	/*Second Priority*/
-			containerTag 	: 'body',			/*Third Priority*/
+			containerSelect	: '#SpHtmlHelper', 	/*First Priority [CSS Selector]*/
 			menuPosition 	: 0,	/*0,1,2,3,4,5,6,N*/
 			menuItems 		: [
 				{
@@ -43,8 +41,8 @@
 		this.makeSpMenu(options);
 	};
 
-	SpHtmlHelper.prototype.getObjById = function(ID) {
-		return document.getElementById(ID);
+	SpHtmlHelper.prototype.getObjByCssSelector = function(ID) {
+		return document.querySelector(ID);
 	};
 
 	SpHtmlHelper.prototype.createTag = function(TAG) {
@@ -58,8 +56,8 @@
 	};
 
 	SpHtmlHelper.prototype.setMenuBrandControl = function(wrapperID,clickID){
-		var wrapper = this.getObjById(wrapperID);
-		var click 	= this.getObjById(clickID);
+		var wrapper = this.getObjByCssSelector('#'+wrapperID);
+		var click 	= this.getObjByCssSelector('#'+clickID);
 
 		click.onclick = function(){
 			if (wrapper.className=='expanded') {
@@ -131,7 +129,7 @@
 
 		newNode.innerHTML = template;
 
-		var container = this.getObjById(options.containerId);
+		var container = this.getObjByCssSelector(options.containerSelect);
 		if (container) {
 			var child = container.childNodes.length;
 			if (child) {
@@ -147,7 +145,7 @@
 			}
 			this.setMenuBrandControl(wrapperID,clickID);
 		}else{
-			this.keepDebugLog('SpHtmlHelper menu {containerId:"'+options.containerId+'"} not found!','color:red;font-size:15px');
+			this.keepDebugLog('SpHtmlHelper menu {containerSelect:"'+options.containerSelect+'"} not found!','color:red;font-size:15px');
 		}
 	}
 
