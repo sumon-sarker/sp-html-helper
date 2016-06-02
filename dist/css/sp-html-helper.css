@@ -34,6 +34,7 @@
 	margin: 6px;
 }
 .SpHtmlHelperMenuContainer .SpHtmlHelperMenuItems{
+	display: none;
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
@@ -46,4 +47,7 @@
 	margin-bottom: 2px;
 	background-color: #6D7580;
 	color: white;
+}
+.expanded .SpHtmlHelperMenuContainer .SpHtmlHelperMenuItems{
+	display: block;
 }

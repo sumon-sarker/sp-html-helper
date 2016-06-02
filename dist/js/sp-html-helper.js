@@ -5,7 +5,8 @@
 		this.app_configs 		= {	/*App config*/
 			debugMode 	: false,
 			domainName 	: window.location.origin,
-			screenSize 	: 768
+			screenSize 	: 768,
+			countMenu 	: 0
 		};
 
 		this.multi_menu_configs	= {	/*Multimenu config*/
@@ -13,13 +14,15 @@
 			languageString 	: ''
 		};
 
+		this.debug_logs 		= Array();	/*Store logs*/
+
 		this.app_configs = this.getDefaultOptions(this.app_configs,options);
 
-		this.displayLog("SpHtmlHelper Constructor Started!","font-size:20px");
-		this.displayLog(this.app_configs);
+		this.keepDebugLog("SpHtmlHelper App configuration!","font-size:15px");
+		this.keepDebugLog(this.app_configs);
 	};
 
-	SpHtmlHelper.prototype.menu = function(options) {
+	SpHtmlHelper.prototype.addMenu = function(options) {
 		var defaultOptions = {
 			containerId 	: 'SpHtmlHelper',
 			containerClass 	: 'SpHtmlHelper',
@@ -34,8 +37,8 @@
 		};
 		options = this.getDefaultOptions(defaultOptions,options);
 
-		this.displayLog("SpHtmlHelper Menu Started!","font-size:20px");
-		this.displayLog(options);
+		this.keepDebugLog("SpHtmlHelper Menu configuration","font-size:15px");
+		this.keepDebugLog(options);
 		
 		this.makeSpMenu(options);
 	};
@@ -44,10 +47,37 @@
 		return document.getElementById(ID);
 	};
 
-	SpHtmlHelper.prototype.displayLog = function(message,css='font-size:10px;color:green'){
+	SpHtmlHelper.prototype.createTag = function(TAG) {
+		return document.createElement(TAG);
+	};
+
+	SpHtmlHelper.prototype.keepDebugLog = function(message,css='font-size:10px;color:green'){
 		if(this.app_configs.debugMode){
-			console.log("%c%o",css,message);
+			this.debug_logs.push({css:css,message:message});
 		}
+	};
+
+	SpHtmlHelper.prototype.setMenuBrandControl = function(wrapperID,clickID){
+		var wrapper = this.getObjById(wrapperID);
+		var click 	= this.getObjById(clickID);
+
+		click.onclick = function(){
+			if (wrapper.className=='expanded') {
+				wrapper.className = '';
+			}else{
+				wrapper.className = 'expanded';
+			}
+		}
+	}
+
+	SpHtmlHelper.prototype.debug = function(){
+		var logs = this.debug_logs;
+		var log;
+		if (logs.length) {
+			for(log in logs){
+				console.log("%c%o",logs[log].css,logs[log].message);
+			}
+		};
 	};
 
 	SpHtmlHelper.prototype.getDefaultOptions = function(defaultOptions,options){
@@ -60,19 +90,33 @@
 		return defaultOptions;
 	};
 
-	SpHtmlHelper.prototype.addMultiSiteMenu = function(options){
+	SpHtmlHelper.prototype.menuConfig = function(options){
 		this.multi_menu_configs = this.getDefaultOptions(this.multi_menu_configs,options);
+		this.keepDebugLog("SpHtmlHelper MultiSiteMenu configuration!","font-size:15px");
+		this.keepDebugLog(this.multi_menu_configs);
 	};
 
 	SpHtmlHelper.prototype.makeSpMenu = function(options){
 		var items 		= options.menuItems;
+		var uniqueID 	= this.app_configs.countMenu;
+		var newNode 	= this.createTag('div');
+		var wrapperID 	= 'SpHtmlHelperMenuWrapper'
+		var clickID 	= 'SpHtmlHelperCtrl';
+
+		++uniqueID;
+		this.app_configs.countMenu = uniqueID;
+		wrapperID 		= wrapperID+uniqueID;
+		clickID 		= clickID+uniqueID;
+		
+		newNode.id 		= wrapperID;
+		
 		var template	= '';
 		template = '<div class="SpHtmlHelperMenuContainer">\n';
 			template+= '\t<div class="SpHtmlHelperMenuHeader">\n';
 				template+='\t\t<div class="SpHtmlHelperMenuSiteLogo">\n';
 					template+='\t\t\t<img src="{SITE_LOGO}" alt="Sp Html Helper">\n';
 				template+='\t\t</div>\n';
-				template+='\t\t<div class="SpHtmlHelperMenuBrand">\n';
+				template+='\t\t<div class="SpHtmlHelperMenuBrand" id="'+clickID+'">\n';
 					template+='\t\t\t<span></span>\n';
 					template+='\t\t\t<span></span>\n';
 					template+='\t\t\t<span></span>\n';
@@ -84,13 +128,26 @@
 				}
 			template+='\t</ul>\n';
 		template+='</div>\n';
-		this.displayLog(template);
+
+		newNode.innerHTML = template;
 
 		var container = this.getObjById(options.containerId);
 		if (container) {
-
+			var child = container.childNodes.length;
+			if (child) {
+				if (child<options.menuPosition){
+					container.insertBefore(newNode,container.childNodes[options.menuPosition]);
+				}else{
+					container.insertBefore(newNode,container.firstChild);
+					this.keepDebugLog('WORNING : SpHtmlHelper menu {menuPosition:"'+options.menuPosition+'"} not found! Menu added as firstChild','color:green;font-size:12px');
+				}
+			}else{
+				container.insertBefore(newNode,container.firstChild);
+				this.keepDebugLog('WORNING : SpHtmlHelper menu {menuPosition:"'+options.menuPosition+'"} not found! Menu added as firstChild','color:green;font-size:12px');
+			}
+			this.setMenuBrandControl(wrapperID,clickID);
 		}else{
-			this.displayLog('SpHtmlHelper menu containerId:"'+options.containerId+'" not found!','color:red;font-size:15px');
+			this.keepDebugLog('SpHtmlHelper menu {containerId:"'+options.containerId+'"} not found!','color:red;font-size:15px');
 		}
 	}
 

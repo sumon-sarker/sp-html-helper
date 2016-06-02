@@ -4,15 +4,13 @@ var SP = new SpHtmlHelper({
 	domainName 	: 'www.sumonsarker.com'
 });
 
-SP.addMultiSiteMenu({
-	multiSiteMenu 	: {
-		multiSiteMenu	: false,
-		languageString 	: '/en/'
-	}
+SP.menuConfig({
+	multiSiteMenu	: false,
+	languageString 	: '/en/'
 });
 
-SP.menu({
-	containerId 	: 'SpHtmlHelperMenus',
+SP.addMenu({
+	containerId 	: 'SpHtmlHelperMenu',
 	containerClass 	: '',
 	menuPosition 	: 0,
 	menuItems 		: [
@@ -28,3 +26,5 @@ SP.menu({
 		},
 	]
 });
+
+SP.debug();
