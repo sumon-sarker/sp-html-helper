@@ -18,7 +18,7 @@ SP.addMenu({
 		3. "#any-id" 			[ID]
 		4. "#any-id > div" 		[H]
 	*/
-	containerSelect : '#SpHtmlHelperMenu',
+	targetContainer : '#SpHtmlHelperMenu',
 	menuPosition 	: 0,
 	menuItems 		: [
 		{

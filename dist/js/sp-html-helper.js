@@ -24,7 +24,7 @@
 
 	SpHtmlHelper.prototype.addMenu = function(options) {
 		var defaultOptions = {
-			containerSelect	: '#SpHtmlHelper', 	/*First Priority [CSS Selector]*/
+			targetContainer	: '#SpHtmlHelper', 	/*First Priority [CSS Selector]*/
 			menuPosition 	: 0,	/*0,1,2,3,4,5,6,N*/
 			menuItems 		: [
 				{
@@ -129,7 +129,7 @@
 
 		newNode.innerHTML = template;
 
-		var container = this.getObjByCssSelector(options.containerSelect);
+		var container = this.getObjByCssSelector(options.targetContainer);
 		if (container) {
 			var child = container.childNodes.length;
 			if (child) {
@@ -145,7 +145,7 @@
 			}
 			this.setMenuBrandControl(wrapperID,clickID);
 		}else{
-			this.keepDebugLog('SpHtmlHelper menu {containerSelect:"'+options.containerSelect+'"} not found!','color:red;font-size:15px');
+			this.keepDebugLog('SpHtmlHelper menu {targetContainer:"'+options.targetContainer+'"} not found!','color:red;font-size:15px');
 		}
 	}
 
