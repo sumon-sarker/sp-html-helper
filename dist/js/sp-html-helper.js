@@ -50,24 +50,24 @@
 	SpHtmlHelper.prototype.makeSpMenu = function(options){
 		var items 		= options.menuItems;
 		var template	= '';
-		template = '<div class="SpHtmlHelperMenuContainer">';
-			template+= '<div class="SpHtmlHelperMenuHeader">';
-				template+='<div class="SpHtmlHelperMenuSiteLogo">';
-					template+='<img src="{SITE_LOGO}" alt="Sp Html Helper">';
-				template+='</div>';
-				template+='<div class="SpHtmlHelperMenuBrand">';
-					template+='<span></span>';
-					template+='<span></span>';
-					template+='<span></span>';
-				template+='</div>';
-				template+='</div>';
-			template+='<ul class="SpHtmlHelperMenuItems">';
+		template = '<div class="SpHtmlHelperMenuContainer">\n';
+			template+= '\t<div class="SpHtmlHelperMenuHeader">\n';
+				template+='\t\t<div class="SpHtmlHelperMenuSiteLogo">\n';
+					template+='\t\t\t<img src="{SITE_LOGO}" alt="Sp Html Helper">\n';
+				template+='\t\t</div>\n';
+				template+='\t\t<div class="SpHtmlHelperMenuBrand">\n';
+					template+='\t\t\t<span></span>\n';
+					template+='\t\t\t<span></span>\n';
+					template+='\t\t\t<span></span>\n';
+				template+='\t\t</div>\n';
+			template+='\t</div>\n';
+			template+='\t<ul class="SpHtmlHelperMenuItems">\n';
 				for(var item in items){
-					template+='<li><a href="'+items[item].link+'">'+items[item].title+'</a></li>';
+					template+='\t\t<li><a href="'+items[item].link+'">'+items[item].title+'</a></li>\n';
 				}
-				template+='<li><a href="#">ITEM 2</a></li>';
-			template+='</ul>';
-		template+='</div>';
+			template+='\t</ul>\n';
+		template+='</div>\n';
+		this.displayLog(template);
 	}
 
 }());
