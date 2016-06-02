@@ -4,8 +4,12 @@ var SP = new SpHtmlHelper({
 });
 
 SP.menu({
-	containerId 	: 'SpHtmlHelper',
-	containerClass 	: 'SpHtmlHelper',
+	multiSiteMenu 	: {
+		multiSiteMenu	: false,
+		languageString 	: '/en/'
+	},
+	containerId 	: 'SpHtmlHelperMenu',
+	containerClass 	: '',
 	menuPosition 	: 0,
 	menuItems 		: [
 		{

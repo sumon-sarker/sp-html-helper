@@ -14,7 +14,10 @@
 	SpHtmlHelper.prototype.menu = function(options) {
 		this.displayLog("SpHtmlHelper Menu Started!","font-size:20px");
 		var defaultOptions = {
-			multiSiteMenu 	: false,
+			multiSiteMenu 	: {
+				multiSiteMenu	: false,
+				languageString 	: ''
+			},
 			containerId 	: 'SpHtmlHelper',
 			containerClass 	: 'SpHtmlHelper',
 			menuPosition 	: 0,	/*0,1,2,3,4,5,6,N*/
