@@ -1,6 +1,7 @@
 ##SpHtmlHelper
 SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 ####Basic HTML codes
+<b>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,7 @@ SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 	<script type="text/javascript" src="dist/js/sp-html-helper-config.js"></script>
 </body>
 </html>
+</b>
 ####SpHtmlHelper Initializer
 ```javascript
 var SP = new SpHtmlHelper({
