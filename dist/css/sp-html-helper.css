@@ -2,13 +2,13 @@
 	width: 100%;
 	display: block;
 	overflow: hidden;
-	background-color: #F46D5D;
 }
 .SpHtmlHelperMenuHeader{
 	display: block;
 	overflow: hidden;
 	min-height: 50px;
 	line-height: 50px;
+	background-color: #F46D5D;
 }
 .SpHtmlHelperMenuHeader .SpHtmlHelperMenuSiteLogo img{
 	max-height: 50px;
@@ -44,5 +44,6 @@
 	padding: 10px;
 	display: block;
 	margin-bottom: 2px;
-	background-color: pink;
+	background-color: #6D7580;
+	color: white;
 }

@@ -10,12 +10,12 @@ SP.menu({
 	menuItems 		: [
 		{
 			title 		: 'SpHtmlHelper1',
-			link 		: '#',
+			link 		: '#1',
 			css_class 	: 'first'
 		},
 		{
 			title 		: 'SpHtmlHelper2',
-			link 		: '#',
+			link 		: '#2',
 			css_class 	: 'last'
 		},
 	]
