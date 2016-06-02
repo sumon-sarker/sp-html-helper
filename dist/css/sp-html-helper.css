@@ -1,0 +1,34 @@
+.SpHtmlHelperMenuContainer{
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	background-color: #F46D5D;
+}
+.SpHtmlHelperMenuHeader{
+	display: block;
+	overflow: hidden;
+	min-height: 50px;
+	line-height: 50px;
+}
+.SpHtmlHelperMenuHeader .SpHtmlHelperMenuSiteLogo img{
+	max-height: 50px;
+	color: white;
+	text-transform: uppercase;
+}
+.SpHtmlHelperMenuHeader .SpHtmlHelperMenuSiteLogo{
+	float: left;
+	margin-left: 5px;
+}
+.SpHtmlHelperMenuHeader .SpHtmlHelperMenuBrand{
+	float: right;
+	background-color: black;
+	width: 50px;
+	height: 40px;
+	margin: 5px;
+}
+.SpHtmlHelperMenuHeader .SpHtmlHelperMenuBrand span{
+	display: block;
+	height: 5px;
+	background-color: white;
+	margin: 6px;
+}
