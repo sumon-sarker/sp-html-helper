@@ -12,6 +12,7 @@ SP.menuConfig({
 SP.addMenu({
 	containerId 	: 'SpHtmlHelperMenu',
 	containerClass 	: '',
+	containerTag 	: '',
 	menuPosition 	: 0,
 	menuItems 		: [
 		{

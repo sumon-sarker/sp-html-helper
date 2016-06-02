@@ -24,8 +24,9 @@
 
 	SpHtmlHelper.prototype.addMenu = function(options) {
 		var defaultOptions = {
-			containerId 	: 'SpHtmlHelper',
-			containerClass 	: 'SpHtmlHelper',
+			containerId 	: 'SpHtmlHelper', 	/*First Priority*/
+			containerClass 	: 'SpHtmlHelper',	/*Second Priority*/
+			containerTag 	: 'body',			/*Third Priority*/
 			menuPosition 	: 0,	/*0,1,2,3,4,5,6,N*/
 			menuItems 		: [
 				{
@@ -39,7 +40,6 @@
 
 		this.keepDebugLog("SpHtmlHelper Menu configuration","font-size:15px");
 		this.keepDebugLog(options);
-		
 		this.makeSpMenu(options);
 	};
 
