@@ -55,3 +55,5 @@ SP.addMenu({
 ```javascript
 SP.debug();
 ```
+#####Documentation URL
+[SpHtmlHelper Decumentation](http://sumon-sarker.github.io/sp-html-helper)
