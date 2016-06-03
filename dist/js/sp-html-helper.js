@@ -25,6 +25,12 @@
 			targetTag 		: '#SpHtmlHelperMenu',
 			className 		: 'helloDolly'
 		};
+		/*Remove tag class config*/
+		this.remove_tag_class_configs = {
+			targetAll 		: true,
+			targetTag 		: '#SpHtmlHelperMenu',
+			className 		: 'helloDolly'
+		};
 		/*Store debug logs*/
 		this.debug_logs 		= Array();
 		this.app_configs = this.get_default_options(this.app_configs,options);
@@ -58,11 +64,11 @@
 		this.make_sp_menu(options);
 	};
 
-	SpHtmlHelper.prototype.AddTagClass = function(options){
+	SpHtmlHelper.prototype.AddClass = function(options){
 		this.add_tag_class_configs = this.get_default_options(this.add_tag_class_configs,options);
 		options = this.add_tag_class_configs;
 		var objects,object;
-		this.keep_debug_log("SpHtmlHelper AddTagClass configuration!","font-size:15px");
+		this.keep_debug_log("SpHtmlHelper AddClass configuration!","font-size:15px");
 		this.keep_debug_log(options);
 		if (options.targetAll){
 			objects = this.get_multiple_obj(options.targetTag);
@@ -71,14 +77,39 @@
 					this.add_class_to_tag(objects[object],options.className);
 				}
 			}else{
-				this.keep_debug_log('WARNING : AddTagClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
+				this.keep_debug_log('WARNING : AddClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
 			}
 		}else{
 			objects = this.get_single_obj(options.targetTag);
 			if(objects){
 				this.add_class_to_tag(objects,options.className);
 			}else{
-				this.keep_debug_log('WARNING : AddTagClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
+				this.keep_debug_log('WARNING : AddClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
+			}
+		}
+	};
+
+	SpHtmlHelper.prototype.RemoveClass = function(options){
+		this.remove_tag_class_configs = this.get_default_options(this.remove_tag_class_configs,options);
+		options = this.remove_tag_class_configs;
+		var objects,object;
+		this.keep_debug_log("SpHtmlHelper RemoveClass configuration!","font-size:15px");
+		this.keep_debug_log(options);
+		if (options.targetAll){
+			objects = this.get_multiple_obj(options.targetTag);
+			if(objects.length){
+				for(object in objects){
+					this.remove_class_to_tag(objects[object],options.className);
+				}
+			}else{
+				this.keep_debug_log('WARNING : RemoveClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
+			}
+		}else{
+			objects = this.get_single_obj(options.targetTag);
+			if(objects){
+				this.remove_class_to_tag(objects,options.className);
+			}else{
+				this.keep_debug_log('WARNING : RemoveClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
 			}
 		}
 	};
@@ -114,6 +145,15 @@
 			obj.className = str;
 		}else{
 			obj.className = cls;
+		}
+	};
+
+	SpHtmlHelper.prototype.remove_class_to_tag = function(obj,cls){
+		var existingClass = obj.className;
+		var str = '';
+		if (existingClass) {
+			str =existingClass.replace(cls,'');
+			obj.className = str;
 		}
 	};
 
