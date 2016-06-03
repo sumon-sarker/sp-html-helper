@@ -10,14 +10,7 @@ SP.menuConfig({
 });
 
 SP.addMenu({
-	/*
-		CSS Selector
-		Example:
-		1. "body" 				[TagName]
-		2. ".any-class" 		[ClassName]
-		3. "#any-id" 			[ID]
-		4. "#any-id > div" 		[H]
-	*/
+	menuLogo 		: 'dist/img/sp-html-helper.png',
 	targetContainer : '#SpHtmlHelperMenu',
 	menuPosition 	: 0,
 	menuItems 		: [

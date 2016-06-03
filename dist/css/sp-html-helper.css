@@ -11,9 +11,13 @@
 	background-color: #F46D5D;
 }
 .SpHtmlHelperMenuHeader .SpHtmlHelperMenuSiteLogo img{
-	max-height: 50px;
+	max-height: 46px;
 	color: white;
 	text-transform: uppercase;
+	margin: 2px;
+	padding: 0px;
+	float: left;
+	background-color: transparent;
 }
 .SpHtmlHelperMenuHeader .SpHtmlHelperMenuSiteLogo{
 	float: left;

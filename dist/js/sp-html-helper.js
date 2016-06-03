@@ -24,6 +24,7 @@
 
 	SpHtmlHelper.prototype.addMenu = function(options) {
 		var defaultOptions = {
+			menuLogo 		: 'sp-html-helper.png',
 			targetContainer	: '#SpHtmlHelper', 	/*First Priority [CSS Selector]*/
 			menuPosition 	: 0,	/*0,1,2,3,4,5,6,N*/
 			menuItems 		: [
@@ -95,6 +96,7 @@
 	};
 
 	SpHtmlHelper.prototype.makeSpMenu = function(options){
+		var menuLogo 	= options.menuLogo;
 		var items 		= options.menuItems;
 		var uniqueID 	= this.app_configs.countMenu;
 		var newNode 	= this.createTag('div');
@@ -112,7 +114,7 @@
 		template = '<div class="SpHtmlHelperMenuContainer">\n';
 			template+= '\t<div class="SpHtmlHelperMenuHeader">\n';
 				template+='\t\t<div class="SpHtmlHelperMenuSiteLogo">\n';
-					template+='\t\t\t<img src="{SITE_LOGO}" alt="Sp Html Helper">\n';
+					template+='\t\t\t<img src="'+menuLogo+'" alt="MENU">\n';
 				template+='\t\t</div>\n';
 				template+='\t\t<div class="SpHtmlHelperMenuBrand" id="'+clickID+'">\n';
 					template+='\t\t\t<span></span>\n';
