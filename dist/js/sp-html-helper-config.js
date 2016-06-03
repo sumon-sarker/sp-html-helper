@@ -45,4 +45,9 @@ SP.RemoveInlineCss({
 	targetCSS 		: 'width,height,float'
 });
 
+SP.CopyPaste({
+	copyTarget 		: 'body ul',
+	pasteTarget 	: 'p'
+});
+
 SP.debug();

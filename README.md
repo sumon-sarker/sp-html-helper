@@ -5,7 +5,8 @@ SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 1. Create Menu Anywhere [Non Multilingual and Multilingual Website]
 2. Add/Remove Class Name From Tag
 3. Remove Inline CSS From HTML Target Tag
-4. Console Debugging For Developers
+4. Copy/Paste Tags
+5. Console Debugging For Developers
 ```
 #####Basic HTML
 ```javascript
@@ -79,6 +80,13 @@ SP.RemoveInlineCss({
 	removeAll 		: false,
 	targetTag 		: 'CSS-SELECTOR',
 	targetCSS 		: 'width,height,float'
+});
+```
+#####Copy and Paste Html Tags
+```javascript
+SP.CopyPaste({
+	copyTarget 		: 'CSS-SELECTOR',
+	pasteTarget 	: 'CSS-SELECTOR'
 });
 ```
 #####Developer Console Debugging

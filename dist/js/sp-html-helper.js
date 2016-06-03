@@ -17,19 +17,24 @@
 		this.inline_css_configs = {
 			removeAll 		: false,
 			targetTag 		: 'CSS-SELECTOR',
-			targetCSS 		: 'width,height'
+			targetCSS 		: 'PROPERTIES-BY-COMMA'	/*width,height,font-size,...*/
 		};
 		/*Add tag class config*/
 		this.add_tag_class_configs = {
-			targetAll 		: true,
-			targetTag 		: '#SpHtmlHelperMenu',
-			className 		: 'helloDolly'
+			targetAll 		: false,
+			targetTag 		: 'CSS-SELECTOR',
+			className 		: 'CLASS-NAME'
 		};
 		/*Remove tag class config*/
 		this.remove_tag_class_configs = {
-			targetAll 		: true,
-			targetTag 		: '#SpHtmlHelperMenu',
-			className 		: 'helloDolly'
+			targetAll 		: false,
+			targetTag 		: 'CSS-SELECTOR',
+			className 		: 'CLASS-NAME'
+		};
+		/*Copy paste configs*/
+		this.copy_paste_configs = {
+			copyTarget 		: 'CSS-SELECTOR',
+			pasteTarget 	: 'CSS-SELECTOR'
 		};
 		/*Store debug logs*/
 		this.debug_logs 		= Array();
@@ -136,6 +141,24 @@
 			this.keep_debug_log('WARNING : RemoveInlineCSS {targetTag:"'+this.inline_css_configs.targetTag+'"} not found!','color:red;font-size:12px');
 		}
 	}
+
+	SpHtmlHelper.prototype.CopyPaste = function(options){
+		this.copy_paste_configs = this.get_default_options(this.copy_paste_configs,options);
+		options = this.copy_paste_configs;
+		this.keep_debug_log("SpHtmlHelper CopyPaste configuration!","font-size:15px");
+		this.keep_debug_log(this.copy_paste_configs);
+		var copy_target 	= this.get_single_obj(options.copyTarget);
+		var paste_target 	= this.get_single_obj(options.pasteTarget);
+		if (!copy_target){
+			this.keep_debug_log('WARNING : CopyPaste {copyTarget:"'+options.copyTarget+'"} not found!','color:red;font-size:12px');
+		}
+		if (!paste_target){
+			this.keep_debug_log('WARNING : CopyPaste {pasteTarget:"'+options.pasteTarget+'"} not found!','color:red;font-size:12px');
+		}
+		if (copy_target && paste_target){
+			paste_target.innerHTML = copy_target.innerHTML;
+		};
+	};
 
 	SpHtmlHelper.prototype.add_class_to_tag = function(obj,cls){
 		var existingClass = obj.className;
