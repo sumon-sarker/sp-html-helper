@@ -13,6 +13,13 @@
 			multiSiteMenu	: false,
 			languageString 	: ''
 		};
+		/*Remove inline CSS config*/
+		this.inline_css_configs = {
+			removeAll 			: false,
+			targetTag 		: '#SpHtmlHelperMenu',
+			targetCSS 		: 'width,height'
+		};
+
 		/*Store debug logs*/
 		this.debug_logs 		= Array();
 		this.app_configs = this.getDefaultOptions(this.app_configs,options);
@@ -40,8 +47,31 @@
 		this.makeSpMenu(options);
 	};
 
-	SpHtmlHelper.prototype.getObjByCssSelector = function(ID) {
-		return document.querySelector(ID);
+	SpHtmlHelper.prototype.removeInlineCss = function(options){
+		this.inline_css_configs = this.getDefaultOptions(this.inline_css_configs,options);
+		var isExists = this.getObjByCssSelector(this.inline_css_configs.targetTag);
+		this.keepDebugLog("SpHtmlHelper RemoveInlineCSS configuration!","font-size:15px");
+		this.keepDebugLog(this.inline_css_configs);
+		if (isExists) {
+			isExists.style = '';
+			if (this.inline_css_configs.removeAll) {
+				var properties 	= this.inline_css_configs.targetCSS.split(',');
+				var property;
+				for(property in properties){
+					/*Remove individual inline CSS*/
+					isExists.style[properties[property]] = '';
+				}
+			}else{
+				/*Remove all inline CSS*/
+				isExists.style = '';
+			}
+		}else{
+			this.keepDebugLog('WARNING : RemoveInlineCSS {targetTag:"'+this.inline_css_configs.targetTag+'"} not found!','color:red;font-size:12px');
+		}
+	}
+
+	SpHtmlHelper.prototype.getObjByCssSelector = function(SELECTOR) {
+		return document.querySelector(SELECTOR);
 	};
 
 	SpHtmlHelper.prototype.createTag = function(TAG) {

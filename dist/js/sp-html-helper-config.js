@@ -27,4 +27,11 @@ SP.addMenu({
 	]
 });
 
+
+SP.removeInlineCss({
+	removeAll 		: true,
+	targetTag 		: '#SpHtmlHelperMenu',
+	targetCSS 		: 'width,height,float'
+});
+
 SP.debug();
