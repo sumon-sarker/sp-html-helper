@@ -1,6 +1,15 @@
 ###SpHtmlHelper
 SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
-#####Basic HTML codes
+#####Features
+```javascript
+1. Create Smartphone Menu [Single Website]
+2. Create Smartphone Menu [Multilingual Website]
+3. Add/Remove CSS Class From HTML Target Tag
+4. Copy/Move Content To Another Target HTML Tag
+5. Console Debugging For Developers
+```
+#####Basic HTML
+```javascript
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +23,7 @@ SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 	<script type="text/javascript" src="dist/js/sp-html-helper-config.js"></script>
 </body>
 </html>
+```
 #####SpHtmlHelper Initializer
 ```javascript
 var SP = new SpHtmlHelper({
