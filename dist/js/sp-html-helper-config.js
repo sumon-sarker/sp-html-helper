@@ -34,4 +34,10 @@ SP.removeInlineCss({
 	targetCSS 		: 'width,height,float'
 });
 
+SP.addTagClass({
+	targetAll 		: true,
+	targetTag 		: '#SpHtmlHelperMenu',
+	className 		: 'helloDolly'
+});
+
 SP.debug();

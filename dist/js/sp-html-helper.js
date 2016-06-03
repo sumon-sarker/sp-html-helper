@@ -19,7 +19,12 @@
 			targetTag 		: '#SpHtmlHelperMenu',
 			targetCSS 		: 'width,height'
 		};
-
+		/*Add tag class config*/
+		this.add_tag_class_configs = {
+			targetAll 		: true,
+			targetTag 		: '#SpHtmlHelperMenu',
+			className 		: 'helloDolly'
+		};
 		/*Store debug logs*/
 		this.debug_logs 		= Array();
 		this.app_configs = this.getDefaultOptions(this.app_configs,options);
@@ -49,7 +54,7 @@
 
 	SpHtmlHelper.prototype.removeInlineCss = function(options){
 		this.inline_css_configs = this.getDefaultOptions(this.inline_css_configs,options);
-		var isExists = this.getObjByCssSelector(this.inline_css_configs.targetTag);
+		var isExists = this.getSingleObj(this.inline_css_configs.targetTag);
 		this.keepDebugLog("SpHtmlHelper RemoveInlineCSS configuration!","font-size:15px");
 		this.keepDebugLog(this.inline_css_configs);
 		if (isExists) {
@@ -70,8 +75,19 @@
 		}
 	}
 
-	SpHtmlHelper.prototype.getObjByCssSelector = function(SELECTOR) {
+	SpHtmlHelper.prototype.addTagClass = function(options){
+		this.add_tag_class_configs = this.getDefaultOptions(this.add_tag_class_configs,options);
+		this.keepDebugLog("SpHtmlHelper AddTagClass configuration!","font-size:15px");
+		this.keepDebugLog(this.add_tag_class_configs);
+		//this.keepDebugLog('WARNING : AddTagClass {targetTag:"'+this.add_tag_class_configs.targetTag+'"} not found!','color:red;font-size:12px');
+	};
+
+	SpHtmlHelper.prototype.getSingleObj = function(SELECTOR) {
 		return document.querySelector(SELECTOR);
+	};
+
+	SpHtmlHelper.prototype.getMultipleObj = function(SELECTOR) {
+		return document.querySelectorAll(SELECTOR);
 	};
 
 	SpHtmlHelper.prototype.createTag = function(TAG) {
@@ -104,8 +120,8 @@
 	}
 
 	SpHtmlHelper.prototype.setMenuBrandControl = function(wrapperID,clickID){
-		var wrapper = this.getObjByCssSelector('#'+wrapperID);
-		var click 	= this.getObjByCssSelector('#'+clickID);
+		var wrapper = this.getSingleObj('#'+wrapperID);
+		var click 	= this.getSingleObj('#'+clickID);
 		click.onclick = function(){
 			if (wrapper.className=='expanded') {
 				wrapper.className = '';
@@ -179,7 +195,7 @@
 			template+='\t</ul>\n';
 		template+='</div>\n';
 		newNode.innerHTML = template;
-		var container = this.getObjByCssSelector(options.targetContainer);
+		var container = this.getSingleObj(options.targetContainer);
 		if (container) {
 			var child = container.childNodes.length;
 			if (child) {
