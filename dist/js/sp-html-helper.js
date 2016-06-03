@@ -1,20 +1,20 @@
 (function(){
-	
-	this.SpHtmlHelper = function(options){	/*Constructor*/
-
-		this.app_configs 		= {	/*App config*/
+	/*Constructor*/
+	this.SpHtmlHelper = function(options){
+		/*App config*/
+		this.app_configs 		= {
 			debugMode 	: false,
 			domainName 	: window.location.origin,
 			screenSize 	: 768,
 			countMenu 	: 0
 		};
-
-		this.multi_menu_configs	= {	/*Multimenu config*/
+		/*Multimenu config*/
+		this.multi_menu_configs	= {
 			multiSiteMenu	: false,
 			languageString 	: ''
 		};
-
-		this.debug_logs 		= Array();	/*Store logs*/
+		/*Store debug logs*/
+		this.debug_logs 		= Array();
 
 		this.app_configs = this.getDefaultOptions(this.app_configs,options);
 
@@ -25,8 +25,9 @@
 	SpHtmlHelper.prototype.addMenu = function(options) {
 		var defaultOptions = {
 			menuLogo 		: 'sp-html-helper.png',
-			targetContainer	: '#SpHtmlHelper', 	/*First Priority [CSS Selector]*/
-			menuPosition 	: 0,	/*0,1,2,3,4,5,6,N*/
+			targetContainer	: '#SpHtmlHelper',
+			/*0,1,2,3,4,5,6,N*/
+			menuPosition 	: 0,
 			menuItems 		: [
 				{
 					title 		: 'SpHtmlHelper',
