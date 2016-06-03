@@ -1,6 +1,6 @@
-##SpHtmlHelper
+###SpHtmlHelper
 SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
-####Basic HTML codes
+#####Basic HTML codes
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,28 +14,18 @@ SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 	<script type="text/javascript" src="dist/js/sp-html-helper-config.js"></script>
 </body>
 </html>
-####SpHtmlHelper Initializer
+#####SpHtmlHelper Initializer
 ```javascript
 var SP = new SpHtmlHelper({
-	debugMode 	: true, /*To disable console debugging set "false"*/
+	debugMode 	: true,
 	screenSize 	: 768,
 	domainName 	: 'http://www.sumonsarker.com'
 });
 ```
-####Add Menu
+#####Adding SP Menu
 ```javascript
 SP.addMenu({
-	/*
-		CSS Selector for "targetContainer"
-		======================================
-		Example:
-		1. "body" 				[TagName]
-		2. ".any-class" 		[ClassName]
-		3. "#any-id" 			[ID]
-		4. "#any-id > div" 		[Parent-Child]
-		5. "rest of CSS selectors"
-	*/
-	targetContainer : '#DEMO-ID',
+	targetContainer : 'CSS SELECTOR',
 	menuPosition 	: 0,
 	menuItems 		: [
 		{
@@ -51,7 +41,7 @@ SP.addMenu({
 	]
 });
 ```
-####Display Debug Log
+#####Developer Console Debugging
 ```javascript
 SP.debug();
 ```
