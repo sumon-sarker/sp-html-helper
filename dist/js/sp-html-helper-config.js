@@ -4,12 +4,12 @@ var SP = new SpHtmlHelper({
 	domainName 	: 'www.sumonsarker.com'
 });
 
-SP.menuConfig({
+SP.MenuConfig({
 	multiSiteMenu	: false,
 	languageString 	: '/en/'
 });
 
-SP.addMenu({
+SP.AddMenu({
 	menuLogo 		: 'dist/img/sp-html-helper.png',
 	targetContainer : '#SpHtmlHelperMenu',
 	menuPosition 	: 0,
@@ -28,15 +28,15 @@ SP.addMenu({
 });
 
 
-SP.removeInlineCss({
+SP.RemoveInlineCss({
 	removeAll 		: true,
 	targetTag 		: '#SpHtmlHelperMenu',
 	targetCSS 		: 'width,height,float'
 });
 
-SP.addTagClass({
+SP.AddTagClass({
 	targetAll 		: true,
-	targetTag 		: '#SpHtmlHelperMenu',
+	targetTag 		: 'p',
 	className 		: 'helloDolly'
 });
 

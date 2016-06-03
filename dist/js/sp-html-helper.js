@@ -27,12 +27,12 @@
 		};
 		/*Store debug logs*/
 		this.debug_logs 		= Array();
-		this.app_configs = this.getDefaultOptions(this.app_configs,options);
-		this.keepDebugLog("SpHtmlHelper App configuration!","font-size:15px");
-		this.keepDebugLog(this.app_configs);
+		this.app_configs = this.get_default_options(this.app_configs,options);
+		this.keep_debug_log("SpHtmlHelper App configuration!","font-size:15px");
+		this.keep_debug_log(this.app_configs);
 	};
 
-	SpHtmlHelper.prototype.addMenu = function(options) {
+	SpHtmlHelper.prototype.AddMenu = function(options) {
 		var defaultOptions = {
 			menuLogo 		: 'sp-html-helper.png',
 			targetContainer	: '#SpHtmlHelper',
@@ -46,17 +46,17 @@
 				}
 			]
 		};
-		options = this.getDefaultOptions(defaultOptions,options);
-		this.keepDebugLog("SpHtmlHelper Menu configuration","font-size:15px");
-		this.keepDebugLog(options);
-		this.makeSpMenu(options);
+		options = this.get_default_options(defaultOptions,options);
+		this.keep_debug_log("SpHtmlHelper Menu configuration","font-size:15px");
+		this.keep_debug_log(options);
+		this.make_sp_menu(options);
 	};
 
-	SpHtmlHelper.prototype.removeInlineCss = function(options){
-		this.inline_css_configs = this.getDefaultOptions(this.inline_css_configs,options);
-		var isExists = this.getSingleObj(this.inline_css_configs.targetTag);
-		this.keepDebugLog("SpHtmlHelper RemoveInlineCSS configuration!","font-size:15px");
-		this.keepDebugLog(this.inline_css_configs);
+	SpHtmlHelper.prototype.RemoveInlineCss = function(options){
+		this.inline_css_configs = this.get_default_options(this.inline_css_configs,options);
+		var isExists = this.get_single_obj(this.inline_css_configs.targetTag);
+		this.keep_debug_log("SpHtmlHelper RemoveInlineCSS configuration!","font-size:15px");
+		this.keep_debug_log(this.inline_css_configs);
 		if (isExists) {
 			isExists.style = '';
 			if (this.inline_css_configs.removeAll) {
@@ -71,57 +71,87 @@
 				isExists.style = '';
 			}
 		}else{
-			this.keepDebugLog('WARNING : RemoveInlineCSS {targetTag:"'+this.inline_css_configs.targetTag+'"} not found!','color:red;font-size:12px');
+			this.keep_debug_log('WARNING : RemoveInlineCSS {targetTag:"'+this.inline_css_configs.targetTag+'"} not found!','color:red;font-size:12px');
 		}
 	}
 
-	SpHtmlHelper.prototype.addTagClass = function(options){
-		this.add_tag_class_configs = this.getDefaultOptions(this.add_tag_class_configs,options);
-		this.keepDebugLog("SpHtmlHelper AddTagClass configuration!","font-size:15px");
-		this.keepDebugLog(this.add_tag_class_configs);
-		//this.keepDebugLog('WARNING : AddTagClass {targetTag:"'+this.add_tag_class_configs.targetTag+'"} not found!','color:red;font-size:12px');
+	SpHtmlHelper.prototype.add_class_to_tag = function(obj,cls){
+		var existingClass = obj.className;
+		var str = '';
+		if (existingClass) {
+			str = existingClass+' '+cls;
+			obj.className = str;
+		}else{
+			obj.className = cls;
+		}
 	};
 
-	SpHtmlHelper.prototype.getSingleObj = function(SELECTOR) {
+	SpHtmlHelper.prototype.AddTagClass = function(options){
+		this.add_tag_class_configs = this.get_default_options(this.add_tag_class_configs,options);
+		options = this.add_tag_class_configs;
+		var objects,object;
+		this.keep_debug_log("SpHtmlHelper AddTagClass configuration!","font-size:15px");
+		this.keep_debug_log(options);
+		if (options.targetAll){
+			objects = this.get_multiple_obj(options.targetTag);
+			if(objects.length){
+				for(object in objects){
+					this.add_class_to_tag(objects[object],options.className);
+				}
+			}else{
+				this.keep_debug_log('WARNING : AddTagClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
+			}
+		}else{
+			objects = this.get_single_obj(options.targetTag);
+			if(objects){
+				this.add_class_to_tag(objects,options.className);
+			}else{
+				this.keep_debug_log('WARNING : AddTagClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
+			}
+		}
+		//this.keep_debug_log('WARNING : AddTagClass {targetTag:"'+this.add_tag_class_configs.targetTag+'"} not found!','color:red;font-size:12px');
+	};
+
+	SpHtmlHelper.prototype.get_single_obj = function(SELECTOR) {
 		return document.querySelector(SELECTOR);
 	};
 
-	SpHtmlHelper.prototype.getMultipleObj = function(SELECTOR) {
+	SpHtmlHelper.prototype.get_multiple_obj = function(SELECTOR) {
 		return document.querySelectorAll(SELECTOR);
 	};
 
-	SpHtmlHelper.prototype.createTag = function(TAG) {
+	SpHtmlHelper.prototype.create_tag = function(TAG) {
 		return document.createElement(TAG);
 	};
 
-	SpHtmlHelper.prototype.keepDebugLog = function(message,css='font-size:10px;color:green'){
+	SpHtmlHelper.prototype.keep_debug_log = function(message,css='font-size:10px;color:green'){
 		if(this.app_configs.debugMode){
 			this.debug_logs.push({css:css,message:message});
 		}
 	};
 
-	SpHtmlHelper.prototype.getUrl = function(){
+	SpHtmlHelper.prototype.get_url = function(){
 		return window.location.href;
 	}
 
-	SpHtmlHelper.prototype.getMatch = function(string){
-		var url = this.getUrl().lastIndexOf(string);
+	SpHtmlHelper.prototype.get_match = function(string){
+		var url = this.get_url().lastIndexOf(string);
 		if(url>=0){
 			return true;
 		}
 		return false;
 	}
 
-	SpHtmlHelper.prototype.checkMultiMenu = function(){
+	SpHtmlHelper.prototype.check_multi_menu = function(){
 		if (this.multi_menu_configs.multiSiteMenu) {
-			return this.getMatch(this.multi_menu_configs.languageString);
+			return this.get_match(this.multi_menu_configs.languageString);
 		}
 		return false;
 	}
 
-	SpHtmlHelper.prototype.setMenuBrandControl = function(wrapperID,clickID){
-		var wrapper = this.getSingleObj('#'+wrapperID);
-		var click 	= this.getSingleObj('#'+clickID);
+	SpHtmlHelper.prototype.set_menu_brand_control = function(wrapperID,clickID){
+		var wrapper = this.get_single_obj('#'+wrapperID);
+		var click 	= this.get_single_obj('#'+clickID);
 		click.onclick = function(){
 			if (wrapper.className=='expanded') {
 				wrapper.className = '';
@@ -141,7 +171,7 @@
 		};
 	};
 
-	SpHtmlHelper.prototype.getDefaultOptions = function(defaultOptions,options){
+	SpHtmlHelper.prototype.get_default_options = function(defaultOptions,options){
 		var property;
 		for(property in options){
 			if (options.hasOwnProperty(property)) {
@@ -151,24 +181,24 @@
 		return defaultOptions;
 	};
 
-	SpHtmlHelper.prototype.menuConfig = function(options){
-		this.multi_menu_configs = this.getDefaultOptions(this.multi_menu_configs,options);
-		this.keepDebugLog("SpHtmlHelper MultiSiteMenu configuration!","font-size:15px");
-		this.keepDebugLog(this.multi_menu_configs);
+	SpHtmlHelper.prototype.MenuConfig = function(options){
+		this.multi_menu_configs = this.get_default_options(this.multi_menu_configs,options);
+		this.keep_debug_log("SpHtmlHelper MultiSiteMenu configuration!","font-size:15px");
+		this.keep_debug_log(this.multi_menu_configs);
 	};
 
-	SpHtmlHelper.prototype.makeSpMenu = function(options){
+	SpHtmlHelper.prototype.make_sp_menu = function(options){
 		/*Check Multimenu*/
 		if(this.multi_menu_configs.multiSiteMenu){
-			if (!this.checkMultiMenu()) {
-				this.keepDebugLog('WARNING : MultiSiteMenu {languageString:"'+this.multi_menu_configs.languageString+'"} not found! MultiSiteMenu adding failed!','color:red;font-size:12px');
+			if (!this.check_multi_menu()) {
+				this.keep_debug_log('WARNING : MultiSiteMenu {languageString:"'+this.multi_menu_configs.languageString+'"} not found! MultiSiteMenu adding failed!','color:red;font-size:12px');
 				return false;
 			};
 		};
 		var menuLogo 	= options.menuLogo;
 		var items 		= options.menuItems;
 		var uniqueID 	= this.app_configs.countMenu;
-		var newNode 	= this.createTag('div');
+		var newNode 	= this.create_tag('div');
 		var wrapperID 	= 'SpHtmlHelperMenuWrapper'
 		var clickID 	= 'SpHtmlHelperCtrl';
 		++uniqueID;
@@ -195,7 +225,7 @@
 			template+='\t</ul>\n';
 		template+='</div>\n';
 		newNode.innerHTML = template;
-		var container = this.getSingleObj(options.targetContainer);
+		var container = this.get_single_obj(options.targetContainer);
 		if (container) {
 			var child = container.childNodes.length;
 			if (child) {
@@ -203,15 +233,15 @@
 					container.insertBefore(newNode,container.childNodes[options.menuPosition]);
 				}else{
 					container.insertBefore(newNode,container.firstChild);
-					this.keepDebugLog('WARNING : SpHtmlHelper menu {menuPosition:"'+options.menuPosition+'"} not found! Menu added as firstChild','color:green;font-size:12px');
+					this.keep_debug_log('WARNING : SpHtmlHelper menu {menuPosition:"'+options.menuPosition+'"} not found! Menu added as firstChild','color:green;font-size:12px');
 				}
 			}else{
 				container.insertBefore(newNode,container.firstChild);
-				this.keepDebugLog('WARNING : SpHtmlHelper menu {menuPosition:"'+options.menuPosition+'"} not found! Menu added as firstChild','color:green;font-size:12px');
+				this.keep_debug_log('WARNING : SpHtmlHelper menu {menuPosition:"'+options.menuPosition+'"} not found! Menu added as firstChild','color:green;font-size:12px');
 			}
-			this.setMenuBrandControl(wrapperID,clickID);
+			this.set_menu_brand_control(wrapperID,clickID);
 		}else{
-			this.keepDebugLog('WARNING: SpHtmlHelper menu {targetContainer:"'+options.targetContainer+'"} not found!','color:red;font-size:15px');
+			this.keep_debug_log('WARNING: SpHtmlHelper menu {targetContainer:"'+options.targetContainer+'"} not found!','color:red;font-size:15px');
 		}
 	}
 }());
