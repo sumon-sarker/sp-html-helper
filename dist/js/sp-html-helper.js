@@ -32,6 +32,12 @@
 		this.keep_debug_log(this.app_configs);
 	};
 
+	SpHtmlHelper.prototype.MenuConfig = function(options){
+		this.multi_menu_configs = this.get_default_options(this.multi_menu_configs,options);
+		this.keep_debug_log("SpHtmlHelper MultiSiteMenu configuration!","font-size:15px");
+		this.keep_debug_log(this.multi_menu_configs);
+	};
+
 	SpHtmlHelper.prototype.AddMenu = function(options) {
 		var defaultOptions = {
 			menuLogo 		: 'sp-html-helper.png',
@@ -75,17 +81,6 @@
 		}
 	}
 
-	SpHtmlHelper.prototype.add_class_to_tag = function(obj,cls){
-		var existingClass = obj.className;
-		var str = '';
-		if (existingClass) {
-			str = existingClass+' '+cls;
-			obj.className = str;
-		}else{
-			obj.className = cls;
-		}
-	};
-
 	SpHtmlHelper.prototype.AddTagClass = function(options){
 		this.add_tag_class_configs = this.get_default_options(this.add_tag_class_configs,options);
 		options = this.add_tag_class_configs;
@@ -109,7 +104,17 @@
 				this.keep_debug_log('WARNING : AddTagClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
 			}
 		}
-		//this.keep_debug_log('WARNING : AddTagClass {targetTag:"'+this.add_tag_class_configs.targetTag+'"} not found!','color:red;font-size:12px');
+	};
+
+	SpHtmlHelper.prototype.add_class_to_tag = function(obj,cls){
+		var existingClass = obj.className;
+		var str = '';
+		if (existingClass) {
+			str = existingClass+' '+cls;
+			obj.className = str;
+		}else{
+			obj.className = cls;
+		}
 	};
 
 	SpHtmlHelper.prototype.get_single_obj = function(SELECTOR) {
@@ -179,12 +184,6 @@
 			}
 		}
 		return defaultOptions;
-	};
-
-	SpHtmlHelper.prototype.MenuConfig = function(options){
-		this.multi_menu_configs = this.get_default_options(this.multi_menu_configs,options);
-		this.keep_debug_log("SpHtmlHelper MultiSiteMenu configuration!","font-size:15px");
-		this.keep_debug_log(this.multi_menu_configs);
 	};
 
 	SpHtmlHelper.prototype.make_sp_menu = function(options){
