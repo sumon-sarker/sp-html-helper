@@ -15,8 +15,8 @@
 		};
 		/*Remove inline CSS config*/
 		this.inline_css_configs = {
-			removeAll 			: false,
-			targetTag 		: '#SpHtmlHelperMenu',
+			removeAll 		: false,
+			targetTag 		: 'CSS-SELECTOR',
 			targetCSS 		: 'width,height'
 		};
 		/*Add tag class config*/
@@ -58,29 +58,6 @@
 		this.make_sp_menu(options);
 	};
 
-	SpHtmlHelper.prototype.RemoveInlineCss = function(options){
-		this.inline_css_configs = this.get_default_options(this.inline_css_configs,options);
-		var isExists = this.get_single_obj(this.inline_css_configs.targetTag);
-		this.keep_debug_log("SpHtmlHelper RemoveInlineCSS configuration!","font-size:15px");
-		this.keep_debug_log(this.inline_css_configs);
-		if (isExists) {
-			isExists.style = '';
-			if (this.inline_css_configs.removeAll) {
-				var properties 	= this.inline_css_configs.targetCSS.split(',');
-				var property;
-				for(property in properties){
-					/*Remove individual inline CSS*/
-					isExists.style[properties[property]] = '';
-				}
-			}else{
-				/*Remove all inline CSS*/
-				isExists.style = '';
-			}
-		}else{
-			this.keep_debug_log('WARNING : RemoveInlineCSS {targetTag:"'+this.inline_css_configs.targetTag+'"} not found!','color:red;font-size:12px');
-		}
-	}
-
 	SpHtmlHelper.prototype.AddTagClass = function(options){
 		this.add_tag_class_configs = this.get_default_options(this.add_tag_class_configs,options);
 		options = this.add_tag_class_configs;
@@ -105,6 +82,29 @@
 			}
 		}
 	};
+
+	SpHtmlHelper.prototype.RemoveInlineCss = function(options){
+		this.inline_css_configs = this.get_default_options(this.inline_css_configs,options);
+		var isExists = this.get_single_obj(this.inline_css_configs.targetTag);
+		this.keep_debug_log("SpHtmlHelper RemoveInlineCSS configuration!","font-size:15px");
+		this.keep_debug_log(this.inline_css_configs);
+		if (isExists) {
+			isExists.style = '';
+			if (this.inline_css_configs.removeAll) {
+				var properties 	= this.inline_css_configs.targetCSS.split(',');
+				var property;
+				for(property in properties){
+					/*Remove individual inline CSS*/
+					isExists.style[properties[property]] = '';
+				}
+			}else{
+				/*Remove all inline CSS*/
+				isExists.style = '';
+			}
+		}else{
+			this.keep_debug_log('WARNING : RemoveInlineCSS {targetTag:"'+this.inline_css_configs.targetTag+'"} not found!','color:red;font-size:12px');
+		}
+	}
 
 	SpHtmlHelper.prototype.add_class_to_tag = function(obj,cls){
 		var existingClass = obj.className;

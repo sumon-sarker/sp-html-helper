@@ -19,24 +19,31 @@ SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 	<link rel="stylesheet" type="text/css" href="dist/css/sp-html-helper.css">
 </head>
 <body>
-	<div id="SpHtmlHelperMenu"></div>
+	<h1>Getting Started SpHtmlHelper</h1>
 	<script type="text/javascript" src="dist/js/sp-html-helper.js"></script>
 	<script type="text/javascript" src="dist/js/sp-html-helper-config.js"></script>
 </body>
 </html>
 ```
-#####SpHtmlHelper Initializer
+#####SpHtmlHelper Initializer [Required]
 ```javascript
 var SP = new SpHtmlHelper({
-	debugMode 	: true,
+	debugMode 	: false,
 	screenSize 	: 768,
 	domainName 	: 'http://www.sumonsarker.com'
 });
 ```
-#####Adding SP Menu
+#####Menu Configuration [Optional, But Required For Multilingual Menu]
+```javascript
+SP.MenuConfig({
+	multiSiteMenu	: false,
+	languageString 	: '/en/'
+});
+```
+#####Adding Menu
 ```javascript
 SP.addMenu({
-	targetContainer : 'CSS SELECTOR',
+	targetContainer : 'CSS-SELECTOR',
 	menuPosition 	: 0,
 	menuItems 		: [
 		{
@@ -50,6 +57,22 @@ SP.addMenu({
 			css_class 	: ''
 		},
 	]
+});
+```
+#####Add Custom Class Name To Target HTML Tag
+```javascript
+SP.AddTagClass({
+	targetAll 		: false,
+	targetTag 		: 'CSS-SELECTOR',
+	className 		: 'YOUR_CLASS_NAME'
+});
+```
+#####Remove Inline CSS From Html Tag
+```javascript
+SP.RemoveInlineCss({
+	removeAll 		: false,
+	targetTag 		: 'CSS-SELECTOR',
+	targetCSS 		: 'width,height,float'
 });
 ```
 #####Developer Console Debugging

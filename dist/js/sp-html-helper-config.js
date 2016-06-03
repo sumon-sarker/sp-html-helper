@@ -27,17 +27,16 @@ SP.AddMenu({
 	]
 });
 
+SP.AddTagClass({
+	targetAll 		: true,
+	targetTag 		: 'p',
+	className 		: 'helloDolly'
+});
 
 SP.RemoveInlineCss({
 	removeAll 		: true,
 	targetTag 		: '#SpHtmlHelperMenu',
 	targetCSS 		: 'width,height,float'
-});
-
-SP.AddTagClass({
-	targetAll 		: true,
-	targetTag 		: 'p',
-	className 		: 'helloDolly'
 });
 
 SP.debug();
