@@ -5,7 +5,9 @@
 		this.app_configs 		= {
 			debugMode 	: false,
 			screenSize 	: 768,
-			totalMenus 	: 0
+			totalMenus 	: 0,
+			workStatus 	: false,
+			isWarning 	: false
 		};
 		/*Multimenu config*/
 		this.multi_menu_configs	= {
@@ -40,6 +42,10 @@
 			pasteTarget 	: 'CSS-SELECTOR',
 			pasteTagClass 	: 'SpHtmlHelperCopyPaste'
 		};
+		/*Getting started*/
+		if (window.innerWidth<=this.app_configs.screenSize) {
+			this.app_configs.workStatus = true;
+		};
 		/*Store debug logs*/
 		this.debug_logs 		= Array();
 		this.app_configs = this.get_default_options(this.app_configs,options);
@@ -48,12 +54,20 @@
 	};
 
 	SpHtmlHelper.prototype.MenuConfig = function(options){
+		if (this.app_configs.workStatus==false) {
+			this.application_warning();
+			return false;
+		};
 		this.multi_menu_configs = this.get_default_options(this.multi_menu_configs,options);
 		this.keep_debug_log("SpHtmlHelper MultiSiteMenu configuration!","font-size:15px");
 		this.keep_debug_log(this.multi_menu_configs);
 	};
 
 	SpHtmlHelper.prototype.AddMenu = function(options) {
+		if (this.app_configs.workStatus==false) {
+			this.application_warning();
+			return false;
+		};
 		var defaultOptions = {
 			menuLogo 		: 'sp-html-helper.png',
 			targetContainer	: '#SpHtmlHelper',
@@ -72,6 +86,10 @@
 	};
 
 	SpHtmlHelper.prototype.AddClass = function(options){
+		if (this.app_configs.workStatus==false) {
+			this.application_warning();
+			return false;
+		};
 		this.add_tag_class_configs = this.get_default_options(this.add_tag_class_configs,options);
 		options = this.add_tag_class_configs;
 		var objects,object;
@@ -97,6 +115,10 @@
 	};
 
 	SpHtmlHelper.prototype.RemoveClass = function(options){
+		if (this.app_configs.workStatus==false) {
+			this.application_warning();
+			return false;
+		};
 		this.remove_tag_class_configs = this.get_default_options(this.remove_tag_class_configs,options);
 		options = this.remove_tag_class_configs;
 		var objects,object;
@@ -122,6 +144,10 @@
 	};
 
 	SpHtmlHelper.prototype.RemoveInlineCss = function(options){
+		if (this.app_configs.workStatus==false) {
+			this.application_warning();
+			return false;
+		};
 		this.inline_css_configs = this.get_default_options(this.inline_css_configs,options);
 		var isExists = this.get_single_obj(this.inline_css_configs.targetTag);
 		this.keep_debug_log("SpHtmlHelper RemoveInlineCSS configuration!","font-size:15px");
@@ -145,6 +171,10 @@
 	}
 
 	SpHtmlHelper.prototype.CopyPaste = function(options){
+		if (this.app_configs.workStatus==false) {
+			this.application_warning();
+			return false;
+		};
 		this.copy_paste_configs = this.get_default_options(this.copy_paste_configs,options);
 		options = this.copy_paste_configs;
 		this.keep_debug_log("SpHtmlHelper CopyPaste configuration!","font-size:15px");
@@ -255,6 +285,14 @@
 		}
 		return defaultOptions;
 	};
+
+	SpHtmlHelper.prototype.application_warning = function(){
+		if (this.app_configs.isWarning) {
+			return false;
+		};
+		this.app_configs.isWarning = true;
+		this.keep_debug_log("SpHtmlHelper actions are disabled! Required maximum ScreenSize "+this.app_configs.screenSize,"color:red;font-size:15px");
+	}
 
 	SpHtmlHelper.prototype.make_sp_menu = function(options){
 		/*Check Multimenu*/
