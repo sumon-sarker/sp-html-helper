@@ -5,7 +5,7 @@
 		this.app_configs 		= {
 			debugMode 	: false,
 			screenSize 	: 768,
-			countMenu 	: 0
+			totalMenus 	: 0
 		};
 		/*Multimenu config*/
 		this.multi_menu_configs	= {
@@ -267,12 +267,12 @@
 		};
 		var menuLogo 	= options.menuLogo;
 		var items 		= options.menuItems;
-		var uniqueID 	= this.app_configs.countMenu;
+		var uniqueID 	= this.app_configs.totalMenus;
 		var newNode 	= this.create_tag('div');
 		var wrapperID 	= 'SpHtmlHelperMenuWrapper'
 		var clickID 	= 'SpHtmlHelperCtrl';
 		++uniqueID;
-		this.app_configs.countMenu = uniqueID;
+		this.app_configs.totalMenus = uniqueID;
 		wrapperID 		= wrapperID+uniqueID;
 		clickID 		= clickID+uniqueID;
 		newNode.id 		= wrapperID;

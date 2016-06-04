@@ -3,10 +3,11 @@ SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 #####Features
 ```javascript
 1. Create Menu Anywhere [Non Multilingual and Multilingual Website]
-2. Add/Remove Class Name From Tag
-3. Remove Inline CSS From HTML Target Tag
-4. Copy/Paste Tags
-5. Console Debugging For Developers
+2. Copy Existing Menu As SP Menu
+3. Add/Remove Class Name From Tag
+4. Remove Inline CSS From HTML Target Tag
+5. Copy/Paste HTML Markup
+6. Console Debugging For Developers
 ```
 #####Basic HTML
 ```javascript
@@ -35,14 +36,17 @@ var SP = new SpHtmlHelper({
 ```javascript
 SP.MenuConfig({
 	multiSiteMenu	: false,
-	languageString 	: '/en/'
+	languageString 	: '/en/',
+	copyTargetMenu 	: {
+		copy 		: false,
+		targetTag 	: "CSS-SELECTOR"
+	}
 });
 ```
 #####Adding Menu
 ```javascript
 SP.addMenu({
 	targetContainer : 'CSS-SELECTOR',
-	menuPosition 	: 0,
 	menuItems 		: [
 		{
 			title 		: 'ITEM 1',
