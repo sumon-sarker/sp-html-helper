@@ -28,12 +28,6 @@
         .ace-twilight{
         	padding: 10px;
         }
-        .jumbotron .list{
-        	font-size: 20px;
-        }
-        .jumbotron .list ul{
-        	font-size: 15px;
-        }
     </style>
 </head>
 
@@ -66,7 +60,7 @@
 	<header id="head">
 		<div class="container">
 			<div class="row">
-				<h1 class="lead">SpHtmlHelper DOCUMENTATION</h1>
+				<h1 class="lead">GETTING STARTED</h1>
 				<p class="tagline">SpHtmlHelper is awesome, customizable and free</p>
 				<p>
 				<a href="https://github.com/sumon-sarker/sp-html-helper/zipball/master" class="btn btn-action btn-lg" role="button">ZIP DOWNLOAD&nbsp;</a>
@@ -78,45 +72,8 @@
 	</header>
 	<!-- /Header -->
 
-	<!-- MODAL -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title">Learn more</h4>
-	      </div>
-	      <div class="modal-body">
-	        <h4 class="text-center">SpHtmlHelper<br/>Documentation Coming Soon...</h4>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	      </div>
-	    </div><!-- /.modal-content -->
-	  </div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
-	<div id="features" class="container">
-		<br/><br/>
-		<h2 class="thin text-center">Features</h2>
-		<div class="jumbotron">
-			<ol class="list">
-				<li>Create Menu Anywhere
-					<ul>
-						<li>Non Multilingual Menu</li>
-						<li>Multilingual Menu</li>
-						<li>Use Existing Menu</li>
-					</ul>
-				</li>
-				<li>Add Class To Tag</li>
-				<li>Remove Class To Tag</li>
-				<li>Remove Inline CSS</li>
-				<li>Copy/Paste HTML Markup</li>
-				<li>Console Debugging For Developers</li>
-			</ol>
-		</div>
-	</div>
 	<div id="gettingStarted" class="container text-center">
-		<br/><br/>
+		<br> <br>
 		<h2 class="thin">Getting Started</h2>
 		<p class="text-left">Basic HTML</p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
@@ -139,114 +96,33 @@
   &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-<p class="text-left">Configuration : <span class="badge">dist/js/sp-html-helper-config.js</span></p>
+
+<p class="text-left">Required META Tags</p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+&lt;meta charset="utf-8"&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+</pre>
+
+<p class="text-left">Required CSS Stylesheet</p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+&lt;link rel="stylesheet" type="text/css" href="dist/css/sp-html-helper.css"&gt;
+</pre>
+
+<p class="text-left">Required SpHtmlHelper Scripts</p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+&lt;script type="text/javascript" src="dist/js/sp-html-helper-min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="dist/js/sp-html-helper-config.js"&gt;&lt;/script&gt;
+</pre>
+
+<p class="text-left">Required Configuration : <span class="badge">dist/js/sp-html-helper-config.js</span></p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
 var SP = new SpHtmlHelper({
-	debugMode 	: false,
-	screenSize 	: 768
+	debugMode 	: false,	/*If debugMode:true, You can see result in your console. This is most important thing about Development mode*/
+	screenSize 	: 768		/*You can define window screenSize, SpHtmlHelper scripts depended on screenSize*/
 });
 </pre>
-		<p class="text-right"><a href="getting-started.html" class="btn btn-primary btn-large">Learn more »</a></p>
-	</div>
-
-	<div id="menuConfig" class="container text-center">
-		<br> <br>
-		<h2 class="thin">Menu Configuration</h2>
-<p class="text-left">Configuration : <span class="badge">dist/js/sp-html-helper-config.js</span></p>
-<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
-SP.MenuConfig({
-	multiSiteMenu	: false,
-	languageString 	: '/en/',
-	copyTargetMenu 	: {
-		copy 		: false,
-		targetTag 	: ""
-	}
-});
-</pre>
-		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
-	</div>
-
-	<div id="addMenu" class="container text-center">
-		<br> <br>
-		<h2 class="thin">Add Menu</h2>
-<p class="text-left">Configuration : <span class="badge">dist/js/sp-html-helper-config.js</span></p>
-<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
-SP.AddMenu({
-	menuLogo 		: 'dist/img/sp-html-helper.png',
-	targetContainer : 'body',
-	menuItems 		: [
-		{
-			title 		: 'SpHtmlHelper1',
-			link 		: '#1',
-			css_class 	: ''
-		},
-		{
-			title 		: 'SpHtmlHelper2',
-			link 		: '#2',
-			css_class 	: ''
-		},
-	]
-});
-</pre>
-		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
-	</div>
-
-	<div id="addClass" class="container text-center">
-		<br> <br>
-		<h2 class="thin">Add Class</h2>
-<p class="text-left">Configuration : <span class="badge">dist/js/sp-html-helper-config.js</span></p>
-<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
-SP.AddClass({
-	targetAll 		: false,
-	targetTag 		: 'CSS-SELECTOR',
-	className 		: 'YOUR-CLASS-NAME'
-});
-</pre>
-		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
-	</div>
-
-	<div id="removeClass" class="container text-center">
-		<br> <br>
-		<h2 class="thin">Remove Class</h2>
-<p class="text-left">Configuration : <span class="badge">dist/js/sp-html-helper-config.js</span></p>
-<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
-SP.RemoveClass({
-	targetAll 		: false,
-	targetTag 		: 'CSS-SELECTOR',
-	className 		: 'YOUR-CLASS-NAME'
-});
-</pre>
-		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
-	</div>
-
-	<div id="removeInlineCSS" class="container text-center">
-		<br> <br>
-		<h2 class="thin">Remove Inline CSS</h2>
-<p class="text-left">Configuration : <span class="badge">dist/js/sp-html-helper-config.js</span></p>
-<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
-SP.RemoveInlineCss({
-	removeAll 		: false,
-	targetTag 		: 'CSS-SELECTOR',
-	targetCSS 		: 'width,height,float'
-});
-</pre>
-		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
-	</div>
-
-	<div id="copyPaste" class="container text-center">
-		<br> <br>
-		<h2 class="thin">Copy and Paste HTML Tags</h2>
-<p class="text-left">Configuration : <span class="badge">dist/js/sp-html-helper-config.js</span></p>
-<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
-SP.CopyPaste({
-	copyTarget 		: 'CSS-SELECTOR',
-	pasteTarget 	: 'CSS-SELECTOR',
-	pasteTagClass 	: 'SpHtmlHelperCopyPaste'
-});
-</pre>
-		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
-	</div>
-	
+	</div>	
 	<!-- Social links. @TODO: replace by link/instructions in template -->
 	<section id="social">
 		<div class="container">
