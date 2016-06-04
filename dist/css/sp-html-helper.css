@@ -12,6 +12,7 @@
 }
 .SpHtmlHelperMenuHeader .SpHtmlHelperMenuSiteLogo img{
 	max-height: 46px;
+	max-width: 225px;
 	color: white;
 	text-transform: uppercase;
 	margin: 2px;
