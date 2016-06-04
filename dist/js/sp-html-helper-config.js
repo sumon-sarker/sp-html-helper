@@ -1,6 +1,6 @@
 var SP = new SpHtmlHelper({
 	debugMode 	: true,
-	screenSize 	: 750
+	screenSize 	: 2000
 });
 
 SP.MenuConfig({
