@@ -43,12 +43,12 @@
 			pasteTagClass 	: 'SpHtmlHelperCopyPaste'
 		};
 		/*Getting started*/
+		this.app_configs 	= this.get_default_options(this.app_configs,options);
 		if (window.innerWidth<=this.app_configs.screenSize) {
 			this.app_configs.workStatus = true;
 		};
 		/*Store debug logs*/
-		this.debug_logs 		= Array();
-		this.app_configs = this.get_default_options(this.app_configs,options);
+		this.debug_logs 	= Array();
 		this.keep_debug_log("SpHtmlHelper App configuration!","font-size:15px");
 		this.keep_debug_log(this.app_configs);
 	};
