@@ -1,7 +1,6 @@
 var SP = new SpHtmlHelper({
 	debugMode 	: true,
-	screenSize 	: 750,
-	domainName 	: 'www.sumonsarker.com'
+	screenSize 	: 750
 });
 
 SP.MenuConfig({

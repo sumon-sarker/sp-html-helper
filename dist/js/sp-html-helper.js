@@ -4,7 +4,6 @@
 		/*App config*/
 		this.app_configs 		= {
 			debugMode 	: false,
-			domainName 	: window.location.origin,
 			screenSize 	: 768,
 			countMenu 	: 0
 		};

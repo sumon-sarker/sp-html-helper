@@ -28,8 +28,7 @@ SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 ```javascript
 var SP = new SpHtmlHelper({
 	debugMode 	: false,
-	screenSize 	: 768,
-	domainName 	: 'http://www.sumonsarker.com'
+	screenSize 	: 768
 });
 ```
 #####Menu Configuration [Optional, But Required For Multilingual Menu]
