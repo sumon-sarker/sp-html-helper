@@ -5,13 +5,16 @@ var SP = new SpHtmlHelper({
 
 SP.MenuConfig({
 	multiSiteMenu	: false,
-	languageString 	: '/en/'
+	languageString 	: '/en/',
+	copyTargetMenu 	: {
+		copy 		: true,
+		targetTag 	: "ul"
+	}
 });
 
 SP.AddMenu({
 	menuLogo 		: 'dist/img/sp-html-helper.png',
-	targetContainer : '#SpHtmlHelperMenu',
-	menuPosition 	: 0,
+	targetContainer : 'body',
 	menuItems 		: [
 		{
 			title 		: 'SpHtmlHelper1',
@@ -28,8 +31,8 @@ SP.AddMenu({
 
 SP.AddClass({
 	targetAll 		: true,
-	targetTag 		: 'p',
-	className 		: 'helloDolly'
+	targetTag 		: '.SpHtmlHelperMenuItems ul',
+	className 		: 'SpHtmlHelperMenuItems'
 });
 
 SP.RemoveClass({

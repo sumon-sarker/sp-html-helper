@@ -10,7 +10,11 @@
 		/*Multimenu config*/
 		this.multi_menu_configs	= {
 			multiSiteMenu	: false,
-			languageString 	: ''
+			languageString 	: '',
+			copyTargetMenu 	: {
+				copy 		: false,
+				targetTag 	: "CSS-SELECTOR"
+			}
 		};
 		/*Remove inline CSS config*/
 		this.inline_css_configs = {
@@ -53,8 +57,6 @@
 		var defaultOptions = {
 			menuLogo 		: 'sp-html-helper.png',
 			targetContainer	: '#SpHtmlHelper',
-			/*0,1,2,3,4,5,6,N*/
-			menuPosition 	: 0,
 			menuItems 		: [
 				{
 					title 		: 'SpHtmlHelper',
@@ -256,9 +258,10 @@
 
 	SpHtmlHelper.prototype.make_sp_menu = function(options){
 		/*Check Multimenu*/
-		if(this.multi_menu_configs.multiSiteMenu){
+		var mMenu = this.multi_menu_configs;
+		if(mMenu.multiSiteMenu){
 			if (!this.check_multi_menu()) {
-				this.keep_debug_log('WARNING : MultiSiteMenu {languageString:"'+this.multi_menu_configs.languageString+'"} not found! MultiSiteMenu adding failed!','color:red;font-size:12px');
+				this.keep_debug_log('WARNING : MultiSiteMenu {languageString:"'+mMenu.languageString+'"} not found! MultiSiteMenu adding failed!','color:red;font-size:12px');
 				return false;
 			};
 		};
@@ -285,27 +288,28 @@
 					template+='\t\t\t<span></span>\n';
 				template+='\t\t</div>\n';
 			template+='\t</div>\n';
-			template+='\t<ul class="SpHtmlHelperMenuItems">\n';
-				for(var item in items){
-					template+='\t\t<li><a href="'+items[item].link+'">'+items[item].title+'</a></li>\n';
+
+			if (mMenu.copyTargetMenu.copy){
+				var contents = this.get_single_obj(mMenu.copyTargetMenu.targetTag);
+				if(contents){
+					template+='\t<div class="SpHtmlHelperMenuItems">\n';
+					template+=contents.outerHTML;
+					template+='\t</div>\n';
+				}else{
+					this.keep_debug_log('WARNING : SpHtmlHelper menu {copyTargetMenu.targetTag:"'+mMenu.copyTargetMenu.targetTag+'"} not found! Copy failed!','color:red;font-size:12px');
 				}
-			template+='\t</ul>\n';
+			}else{
+				template+='\t<ul class="SpHtmlHelperMenuItems">\n';
+					for(var item in items){
+						template+='\t\t<li><a href="'+items[item].link+'">'+items[item].title+'</a></li>\n';
+					}
+				template+='\t</ul>\n';
+			}
 		template+='</div>\n';
 		newNode.innerHTML = template;
 		var container = this.get_single_obj(options.targetContainer);
 		if (container) {
-			var child = container.childNodes.length;
-			if (child) {
-				if (child<options.menuPosition){
-					container.insertBefore(newNode,container.childNodes[options.menuPosition]);
-				}else{
-					container.insertBefore(newNode,container.firstChild);
-					this.keep_debug_log('WARNING : SpHtmlHelper menu {menuPosition:"'+options.menuPosition+'"} not found! Menu added as firstChild','color:green;font-size:12px');
-				}
-			}else{
-				container.insertBefore(newNode,container.firstChild);
-				this.keep_debug_log('WARNING : SpHtmlHelper menu {menuPosition:"'+options.menuPosition+'"} not found! Menu added as firstChild','color:green;font-size:12px');
-			}
+			container.insertBefore(newNode,container.firstChild);
 			this.set_menu_brand_control(wrapperID,clickID);
 		}else{
 			this.keep_debug_log('WARNING: SpHtmlHelper menu {targetContainer:"'+options.targetContainer+'"} not found!','color:red;font-size:15px');
