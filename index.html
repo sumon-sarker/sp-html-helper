@@ -1,72 +1,271 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	<title>SP HTML HELPER - Non-responsive Website Helper</title>
+	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+	<style type="text/css">
+        .code {
+            width: 100%;
+            white-space: pre-wrap;
+            border: solid lightgrey 1px;
+            text-align: left;
+        }
+        .ace-twilight{
+        	padding: 10px;
+        }
+    </style>
+</head>
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Sp-html-helper : SpHtmlHelper is Javascript helper gor non-responsive websites.">
+<body class="home">
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				<a class="navbar-brand" href="index.html">SpHtmlHelper</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="#gettingStarted">Getting Started</a></li>
+					<li><a href="#menuConfig">MenuConfig</a></li>
+					<li><a href="#addMenu">AddMenu</a></li>
+					<li><a href="#addClass">AddClass</a></li>
+					<li><a href="#removeClass">RemoveClass</a></li>
+					<li><a href="#removeInlineCSS">RemoveInlineCSS</a></li>
+					<li><a href="#removeInlineCSS">CopyPaste</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div> 
+	<!-- /.navbar -->
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+	<!-- Header -->
+	<header id="head">
+		<div class="container">
+			<div class="row">
+				<h1 class="lead">SpHtmlHelper DOCUMENTATION</h1>
+				<p class="tagline">SpHtmlHelper is awesome, customizable and free</p>
+				<p>
+				<a href="https://github.com/sumon-sarker/sp-html-helper/zipball/master" class="btn btn-action btn-lg" role="button">ZIP DOWNLOAD&nbsp;</a>
+				<a href="https://github.com/sumon-sarker/sp-html-helper/tarball/master" class="btn btn-info btn-lg" role="button">TAR DOWNLOAD&nbsp;</a>
+				<a href="https://github.com/sumon-sarker/sp-html-helper" class="btn btn-success btn-lg" role="button">VIEW ON GITHUB</a>
+				</p>
+			</div>
+		</div>
+	</header>
+	<!-- /Header -->
 
-    <title>Sp-html-helper</title>
-  </head>
+	<!-- MODAL -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Learn more</h4>
+	      </div>
+	      <div class="modal-body">
+	        <h4 class="text-center">SpHtmlHelper<br/>Documentation Coming Soon...</h4>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
-  <body>
+	<div id="gettingStarted" class="container text-center">
+		<br> <br>
+		<h2 class="thin">Initializer</h2>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+var SP = new SpHtmlHelper({
+	debugMode 	: false,
+	screenSize 	: 768
+});
+</pre>
+		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
+	</div>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/sumon-sarker/sp-html-helper">View on GitHub</a>
+	<div id="menuConfig" class="container text-center">
+		<br> <br>
+		<h2 class="thin">Menu Configuration</h2>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.MenuConfig({
+	multiSiteMenu	: false,
+	languageString 	: '/en/',
+	copyTargetMenu 	: {
+		copy 		: false,
+		targetTag 	: ""
+	}
+});
+</pre>
+		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
+	</div>
 
-          <h1 id="project_title">Sp-html-helper</h1>
-          <h2 id="project_tagline">SpHtmlHelper is Javascript helper gor non-responsive websites.</h2>
+	<div id="addMenu" class="container text-center">
+		<br> <br>
+		<h2 class="thin">Add Menu</h2>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.AddMenu({
+	menuLogo 		: 'dist/img/sp-html-helper.png',
+	targetContainer : 'body',
+	menuItems 		: [
+		{
+			title 		: 'SpHtmlHelper1',
+			link 		: '#1',
+			css_class 	: ''
+		},
+		{
+			title 		: 'SpHtmlHelper2',
+			link 		: '#2',
+			css_class 	: ''
+		},
+	]
+});
+</pre>
+		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
+	</div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/sumon-sarker/sp-html-helper/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/sumon-sarker/sp-html-helper/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+	<div id="addClass" class="container text-center">
+		<br> <br>
+		<h2 class="thin">Add Class</h2>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.AddClass({
+	targetAll 		: false,
+	targetTag 		: 'CSS-SELECTOR',
+	className 		: 'YOUR-CLASS-NAME'
+});
+</pre>
+		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
+	</div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+	<div id="removeClass" class="container text-center">
+		<br> <br>
+		<h2 class="thin">Remove Class</h2>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.RemoveClass({
+	targetAll 		: false,
+	targetTag 		: 'CSS-SELECTOR',
+	className 		: 'YOUR-CLASS-NAME'
+});
+</pre>
+		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
+	</div>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+	<div id="removeInlineCSS" class="container text-center">
+		<br> <br>
+		<h2 class="thin">Remove Inline CSS</h2>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.RemoveInlineCss({
+	removeAll 		: false,
+	targetTag 		: 'CSS-SELECTOR',
+	targetCSS 		: 'width,height,float'
+});
+</pre>
+		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
+	</div>
 
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
+	<div id="copyPaste" class="container text-center">
+		<br> <br>
+		<h2 class="thin">Copy and Paste HTML Tags</h2>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.CopyPaste({
+	copyTarget 		: 'CSS-SELECTOR',
+	pasteTarget 	: 'CSS-SELECTOR',
+	pasteTagClass 	: 'SpHtmlHelperCopyPaste'
+});
+</pre>
+		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
+	</div>
+	
+	<!-- Social links. @TODO: replace by link/instructions in template -->
+	<section id="social">
+		<div class="container">
+			<div class="wrapper clearfix">
+				<!-- AddThis Button BEGIN -->
+				<div class="addthis_toolbox addthis_default_style">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_tweet"></a>
+				<a class="addthis_button_linkedin_counter"></a>
+				<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+				</div>
+				<!-- AddThis Button END -->
+			</div>
+		</div>
+	</section>
+	<!-- /social links -->
 
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+	<footer id="footer" class="top-space">
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="simplenav">
+								<a target="_blank" href="https://www.facebook.com/animation.gallary">Facebook</a> | 
+								<a target="_blank" href="https://twitter.com/sumonsarker74">Twitter</a> |
+								<a target="_blank" href="https://bd.linkedin.com/in/sumon-sarker-01702565">Linked In</a> |
+								<a target="_blank" href="https://plus.google.com/+SumonSarkerCoder">Google+</a>
+							</p>
+						</div>
+					</div>
 
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="text-right">
+								Copyright &copy; 2016, SpHtmlHelper. Designed by <a href="http://sumonsarker.com/" rel="designer">Sumon Sarker</a> 
+							</p>
+						</div>
+					</div>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+				</div> <!-- /row of widgets -->
+			</div>
+		</div>
+	</footer>
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Sp-html-helper maintained by <a href="https://github.com/sumon-sarker">sumon-sarker</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="assets/js/headroom.min.js"></script>
+	<script src="assets/js/jQuery.headroom.min.js"></script>
+	<script src="assets/js/template.js"></script>
+	<script src="ace-master/demo/kitchen-sink/require.js"></script>
+	<script>
+		require.config({paths: { "ace" : "ace-master/lib/ace"}});
+		require(["ace/ace", "ace/ext/static_highlight"], function(ace) {
+		    var highlight = ace.require("ace/ext/static_highlight")
+		    var dom = ace.require("ace/lib/dom")
+		    function qsa(sel) {
+		        return Array.apply(null, document.querySelectorAll(sel));
+		    }
+		    qsa(".code").forEach(function (codeEl) {
+		        highlight(codeEl, {
+		            mode: codeEl.getAttribute("ace-mode"),
+		            theme: codeEl.getAttribute("ace-theme"),
+		            startLineNumber: 1,
+		            showGutter: codeEl.getAttribute("ace-gutter"),
+		            trim: true
+		        }, function (highlighted) {
+		            
+		        });
+		    });
+		})
+	</script>
+</body>
 </html>
