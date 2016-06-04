@@ -33,7 +33,8 @@
 		/*Copy paste configs*/
 		this.copy_paste_configs = {
 			copyTarget 		: 'CSS-SELECTOR',
-			pasteTarget 	: 'CSS-SELECTOR'
+			pasteTarget 	: 'CSS-SELECTOR',
+			pasteTagClass 	: 'SpHtmlHelperCopyPaste'
 		};
 		/*Store debug logs*/
 		this.debug_logs 		= Array();
@@ -155,7 +156,12 @@
 			this.keep_debug_log('WARNING : CopyPaste {pasteTarget:"'+options.pasteTarget+'"} not found!','color:red;font-size:12px');
 		}
 		if (copy_target && paste_target){
-			paste_target.innerHTML = copy_target.innerHTML;
+			var tagName,newNode;
+			tagName = copy_target.nodeName;
+			newNode = this.create_tag(tagName);
+			newNode.className = options.pasteTagClass;
+			newNode.innerHTML = copy_target.innerHTML;
+			paste_target.insertBefore(newNode,paste_target.lastChild);
 		};
 	};
 

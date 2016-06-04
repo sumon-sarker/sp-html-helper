@@ -46,7 +46,8 @@ SP.RemoveInlineCss({
 
 SP.CopyPaste({
 	copyTarget 		: 'body ul',
-	pasteTarget 	: 'p'
+	pasteTarget 	: 'p',
+	pasteTagClass 	: 'SpHtmlHelperCopyPaste'
 });
 
 SP.debug();
