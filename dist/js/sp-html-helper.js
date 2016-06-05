@@ -27,6 +27,7 @@
 		/*Add tag class config*/
 		this.add_tag_class_configs = {
 			targetAll 		: false,
+			urlMatch 		: false,
 			targetTag 		: 'CSS-SELECTOR',
 			className 		: 'CLASS-NAME'
 		};
@@ -49,7 +50,7 @@
 		};
 		/*Store debug logs*/
 		this.debug_logs 	= Array();
-		this.keep_debug_log("SpHtmlHelper App configuration!","font-size:15px");
+		this.keep_debug_log("SpHtmlHelper App Configuration!","font-size:15px;color:green");
 		this.keep_debug_log(this.app_configs);
 	};
 
@@ -59,7 +60,7 @@
 			return false;
 		};
 		this.multi_menu_configs = this.get_default_options(this.multi_menu_configs,options);
-		this.keep_debug_log("SpHtmlHelper MultiSiteMenu configuration!","font-size:15px");
+		this.keep_debug_log("SpHtmlHelper MenuConfig Configuration!","font-size:15px;color:green");
 		this.keep_debug_log(this.multi_menu_configs);
 	};
 
@@ -80,7 +81,7 @@
 			]
 		};
 		options = this.get_default_options(defaultOptions,options);
-		this.keep_debug_log("SpHtmlHelper Menu configuration","font-size:15px");
+		this.keep_debug_log("SpHtmlHelper AddMenu Configuration","font-size:15px;color:green");
 		this.keep_debug_log(options);
 		this.make_sp_menu(options);
 	};
@@ -93,8 +94,14 @@
 		this.add_tag_class_configs = this.get_default_options(this.add_tag_class_configs,options);
 		options = this.add_tag_class_configs;
 		var objects,object;
-		this.keep_debug_log("SpHtmlHelper AddClass configuration!","font-size:15px");
+		this.keep_debug_log("SpHtmlHelper AddClass Configuration!","font-size:15px;color:green");
 		this.keep_debug_log(options);
+		if (options.urlMatch) {
+			if(!this.get_match(options.urlMatch)){
+				this.keep_debug_log('WARNING : AddClass {urlMatch:"'+options.urlMatch+'"} not match with current url!','color:red;font-size:12px');
+				return false;
+			};
+		};
 		if (options.targetAll){
 			objects = this.get_multiple_obj(options.targetTag);
 			if(objects.length){
@@ -122,7 +129,7 @@
 		this.remove_tag_class_configs = this.get_default_options(this.remove_tag_class_configs,options);
 		options = this.remove_tag_class_configs;
 		var objects,object;
-		this.keep_debug_log("SpHtmlHelper RemoveClass configuration!","font-size:15px");
+		this.keep_debug_log("SpHtmlHelper RemoveClass Configuration!","font-size:15px;color:green");
 		this.keep_debug_log(options);
 		if (options.targetAll){
 			objects = this.get_multiple_obj(options.targetTag);
@@ -150,7 +157,7 @@
 		};
 		this.inline_css_configs = this.get_default_options(this.inline_css_configs,options);
 		var isExists = this.get_single_obj(this.inline_css_configs.targetTag);
-		this.keep_debug_log("SpHtmlHelper RemoveInlineCSS configuration!","font-size:15px");
+		this.keep_debug_log("SpHtmlHelper RemoveInlineCSS Configuration!","font-size:15px;color:green");
 		this.keep_debug_log(this.inline_css_configs);
 		if (isExists) {
 			isExists.style = '';
@@ -177,7 +184,7 @@
 		};
 		this.copy_paste_configs = this.get_default_options(this.copy_paste_configs,options);
 		options = this.copy_paste_configs;
-		this.keep_debug_log("SpHtmlHelper CopyPaste configuration!","font-size:15px");
+		this.keep_debug_log("SpHtmlHelper CopyPaste Configuration!","font-size:15px;color:green");
 		this.keep_debug_log(this.copy_paste_configs);
 		var copy_target 	= this.get_single_obj(options.copyTarget);
 		var paste_target 	= this.get_single_obj(options.pasteTarget);

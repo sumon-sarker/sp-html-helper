@@ -31,6 +31,7 @@ SP.AddMenu({
 
 SP.AddClass({
 	targetAll 		: true,
+	urlMatch 		: false,
 	targetTag 		: '.SpHtmlHelperMenuItems ul',
 	className 		: 'SpHtmlHelperMenuItems'
 });
