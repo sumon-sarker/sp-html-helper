@@ -65,6 +65,7 @@ SP.addMenu({
 ```javascript
 SP.AddClass({
 	targetAll 		: false,
+	urlMatch 		: false,
 	targetTag 		: 'CSS-SELECTOR',
 	className 		: 'YOUR_CLASS_NAME'
 });
