@@ -1,3 +1,8 @@
+/*
+* Plugin Name 	: SpHtmlHelper
+* Developer 	: Sumon Sarker
+* Version 		: 1.0
+*/
 (function(){
 	/*Constructor*/
 	this.SpHtmlHelper = function(options){
