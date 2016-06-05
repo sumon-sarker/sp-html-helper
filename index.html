@@ -28,12 +28,6 @@
         .ace-twilight{
         	padding: 10px;
         }
-        .jumbotron .list{
-        	font-size: 20px;
-        }
-        .jumbotron .list ul{
-        	font-size: 15px;
-        }
         .feactureIcon{
         	margin-top: 10px;
         }
@@ -41,7 +35,24 @@
         	font-size: 30px;
         }
         .thumbnail{
-        	min-height: 170px;
+        	min-height: 185px;
+        	background-color: #718B88;
+        	color: white;
+        	cursor: pointer;
+        }
+        .thumbnail p{
+        	padding: 10px;
+        }
+        .thumbnail .caption h4{
+        	color: black;
+			font-weight: bold;
+			transition:all .3s;
+        }
+        .thumbnail:hover > .caption h4{
+        	color: white;
+        }
+        .upcoming{
+        	background-color: #3cf;
         }
     </style>
 </head>
@@ -167,7 +178,7 @@
 		    <div class="thumbnail text-center">
 		      	<div class="feactureIcon"><span class="glyphicon glyphicon-copyright-mark"></span></div>
 		      	<div class="caption">
-        			<h4>Copy Paste</h4>
+        			<h4>Copy Paste Tag</h4>
         		</div>
         		<p class="text-left">
         			Copy any paste your HTML tag into other HTML tag.
@@ -182,6 +193,17 @@
         		</div>
         		<p class="text-left">
         			Debug your script when development mode.
+        		</p>
+		    </div>
+		  </div>
+		  <div class="col-xs-6 col-md-3">
+		    <div class="thumbnail text-center upcoming">
+		      	<div class="feactureIcon"><span class="glyphicon glyphicon-th"></span></div>
+		      	<div class="caption">
+        			<h4>Upcoming Features</h4>
+        		</div>
+        		<p class="text-left">
+        			Comming soon...
         		</p>
 		    </div>
 		  </div>
@@ -235,7 +257,7 @@ SP.MenuConfig({
 	}
 });
 </pre>
-		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
+		<p class="text-right"><a href="menu-configuration.html" class="btn btn-primary btn-large">Learn more »</a></p>
 	</div>
 
 	<div id="addMenu" class="container text-center">
@@ -316,6 +338,16 @@ SP.CopyPaste({
 	pasteTarget 	: 'CSS-SELECTOR',
 	pasteTagClass 	: 'SpHtmlHelperCopyPaste'
 });
+</pre>
+		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
+	</div>
+
+	<div id="debug" class="container text-center">
+		<br> <br>
+		<h2 class="thin">Debugging</h2>
+<p class="text-left">Configuration : <span class="badge">dist/js/sp-html-helper-config.js</span></p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.debug();
 </pre>
 		<p class="text-right"><a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Learn more »</a></p>
 	</div>
