@@ -88,7 +88,49 @@ SP.MenuConfig({
 	}
 });
 </pre>
+	<h2 class="thin">Multilingual Menu</h2>
+	<br/>
+	<img class="img-responsive" src="assets/images/1.png" alt="multiSiteMenu"/>
+	<br/>
+	<p class="text-left">Example 1 [Adding japanese language menu]</p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.MenuConfig({
+	multiSiteMenu	: true,
+	languageString 	: '/jp/'
+});
+</pre>
 
+	<h2 class="thin">Copy existing website menu as SP Menu Items</h2>
+	<br/>
+	<img class="img-responsive" src="assets/images/2.png" alt="CopyHTML">
+	<br/>
+	<p class="text-left">Example 2 [Copy website menu]</p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.MenuConfig({
+	copyTargetMenu 	: {
+		copy 		: true,
+		targetTag 	: "body ul"
+	}
+});
+</pre>
+<br/>
+<hr/>
+<br/>
+	<p class="text-left">Full Configuration for above 2 example <span class="badge">dist/js/sp-html-helper-config.js</span></p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.MenuConfig({
+	multiSiteMenu	: true,
+	languageString 	: '/jp/',
+	copyTargetMenu 	: {
+		copy 		: true,
+		targetTag 	: "body ul"
+	}
+});
+
+SP.addMenu({
+    targetContainer : 'body' /*Menu will add to body*/
+});
+</pre>
 
 	</div>	
 	<!-- Social links. @TODO: replace by link/instructions in template -->
