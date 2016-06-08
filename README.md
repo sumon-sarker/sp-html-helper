@@ -45,7 +45,7 @@ SP.MenuConfig({
 ```
 #####Adding Menu
 ```javascript
-SP.addMenu({
+SP.AddMenu({
 	targetContainer : 'CSS-SELECTOR',
 	menuItems 		: [
 		{
