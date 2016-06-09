@@ -129,6 +129,35 @@ SP.debug(); /*Call this function to the last line of your script*/
 </pre>
 	<p class="text-left">Result</p>
 	<img class="img-responsive" src="assets/images/9.png" alt="Debugging 2"/>
+	<br/>
+	<p class="text-left">Example 3 [Show WARNING message, If selector not found]</p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+var SP = new SpHtmlHelper({
+    debugMode   : true, /*Enable debug mode, Otherwise Debug mode is disabled*/
+    screenSize  : 2000 /*Define your SP device screen, [In pixel]*/
+});
+
+SP.AddMenu({
+    menuLogo        : 'dist/img/sp-html-helper.png',
+    targetContainer : 'body #nav',
+    menuItems       : [
+        {
+            title       : 'SpHtmlHelper1',
+            link        : '#1',
+            css_class   : ''
+        },
+        {
+            title       : 'SpHtmlHelper2',
+            link        : '#2',
+            css_class   : ''
+        },
+    ]
+});
+
+SP.debug(); /*Call this function to the last line of your script*/
+</pre>
+	<p class="text-left">Result</p>
+	<img class="img-responsive" src="assets/images/10.png" alt="Debugging 2"/>
 	</div>	
 	<!-- Social links. @TODO: replace by link/instructions in template -->
 	<section id="social">
