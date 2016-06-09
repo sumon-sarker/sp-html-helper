@@ -64,8 +64,7 @@ SP.AddMenu({
 #####Add Custom Class Name To HTML Tag
 ```javascript
 SP.AddClass({
-	targetAll 		: false,
-	urlMatch 		: false,
+	urlMatch 		: false, /*Or any url string. Ex: '/jpn/'*/
 	targetTag 		: 'CSS-SELECTOR',
 	className 		: 'YOUR_CLASS_NAME'
 });
@@ -73,7 +72,7 @@ SP.AddClass({
 #####Remove Class Name From HTML Tag
 ```javascript
 SP.RemoveClass({
-	targetAll 		: false,
+	urlMatch 		: false, /*Or any url string. Ex: '/eng/'*/
 	targetTag 		: 'CSS-SELECTOR',
 	className 		: 'YOUR_CLASS_NAME'
 });
@@ -81,6 +80,7 @@ SP.RemoveClass({
 #####Remove Inline CSS From Html Tag
 ```javascript
 SP.RemoveInlineCss({
+	urlMatch 		: false, /*Or any url string. Ex: '/jpn/'*/
 	targetTag 		: 'CSS-SELECTOR',
 	targetCSS 		: 'width,height,float'
 });
@@ -89,7 +89,8 @@ SP.RemoveInlineCss({
 ```javascript
 SP.CopyPaste({
 	copyTarget 		: 'CSS-SELECTOR',
-	pasteTarget 	: 'CSS-SELECTOR'
+	pasteTarget 	: 'CSS-SELECTOR',
+	pasteTagClass 	: 'YOUR-NEW-CLASS'
 });
 ```
 #####Developer Console Debugging
