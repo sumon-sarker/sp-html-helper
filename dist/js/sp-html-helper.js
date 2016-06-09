@@ -36,7 +36,7 @@
 		};
 		/*Remove tag class config*/
 		this.remove_tag_class_configs = {
-			targetAll 		: false,
+			urlMatch 		: false, /*false or any URL string. Ex: '/en/sp-project/'*/
 			targetTag 		: 'CSS-SELECTOR',
 			className 		: 'CLASS-NAME'
 		};
@@ -125,22 +125,19 @@
 		var objects,object;
 		this.keep_debug_log("SpHtmlHelper RemoveClass Configuration!","font-size:15px;color:green");
 		this.keep_debug_log(options);
-		if (options.targetAll){
-			objects = this.get_multiple_obj(options.targetTag);
-			if(objects.length){
-				for(object in objects){
-					this.remove_class_to_tag(objects[object],options.className);
-				}
-			}else{
-				this.keep_debug_log('WARNING : RemoveClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
+		if (options.urlMatch) {
+			if(!this.get_match(options.urlMatch)){
+				this.keep_debug_log('WARNING : RemoveClass {urlMatch:"'+options.urlMatch+'"} not match with current url!','color:red;font-size:12px');
+				return false;
+			};
+		};
+		objects = this.get_multiple_obj(options.targetTag);
+		if(objects.length){
+			for(object in objects){
+				this.remove_class_to_tag(objects[object],options.className);
 			}
 		}else{
-			objects = this.get_single_obj(options.targetTag);
-			if(objects){
-				this.remove_class_to_tag(objects,options.className);
-			}else{
-				this.keep_debug_log('WARNING : RemoveClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
-			}
+			this.keep_debug_log('WARNING : RemoveClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
 		}
 	};
 
