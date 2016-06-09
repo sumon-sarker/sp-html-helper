@@ -81,7 +81,6 @@ SP.RemoveClass({
 #####Remove Inline CSS From Html Tag
 ```javascript
 SP.RemoveInlineCss({
-	removeAll 		: false,
 	targetTag 		: 'CSS-SELECTOR',
 	targetCSS 		: 'width,height,float'
 });

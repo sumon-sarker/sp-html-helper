@@ -25,9 +25,8 @@
 		};
 		/*Remove inline CSS config*/
 		this.inline_css_configs = {
-			removeAll 		: false,
 			targetTag 		: 'CSS-SELECTOR',
-			targetCSS 		: 'PROPERTIES-BY-COMMA'	/*width,height,font-size,...*/
+			targetCSS 		: '*'	/*'*' = All Or width,height,font-size,...*/
 		};
 		/*Add tag class config*/
 		this.add_tag_class_configs = {
@@ -161,21 +160,27 @@
 			return false;
 		};
 		this.inline_css_configs = this.get_default_options(this.inline_css_configs,options);
-		var isExists = this.get_single_obj(this.inline_css_configs.targetTag);
+		var isExists = this.get_multiple_obj(this.inline_css_configs.targetTag);
 		this.keep_debug_log("SpHtmlHelper RemoveInlineCSS Configuration!","font-size:15px;color:green");
 		this.keep_debug_log(this.inline_css_configs);
-		if (isExists) {
-			isExists.style = '';
-			if (this.inline_css_configs.removeAll) {
-				var properties 	= this.inline_css_configs.targetCSS.split(',');
-				var property;
-				for(property in properties){
-					/*Remove individual inline CSS*/
-					isExists.style[properties[property]] = '';
+		if (isExists.length) {
+			var i,property,properties;
+			if (this.inline_css_configs.targetCSS=='*') {
+				for(i in isExists){
+					isExists[i].style = '';
 				}
 			}else{
-				/*Remove all inline CSS*/
-				isExists.style = '';
+				properties 	= this.inline_css_configs.targetCSS.split(',');
+				for(i=0; i<isExists.length;i++){
+					for(property in properties){
+						/*Remove individual inline CSS*/
+						isExists[i].style[properties[property]] = '';
+						/*Remove attribute property, Ex: width="600px"*/
+						if(isExists[i].getAttribute(properties[property])){
+							isExists[i].removeAttribute(properties[property]);
+						}
+					}
+				}
 			}
 		}else{
 			this.keep_debug_log('WARNING : RemoveInlineCSS {targetTag:"'+this.inline_css_configs.targetTag+'"} not found!','color:red;font-size:12px');
