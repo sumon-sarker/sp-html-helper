@@ -1,4 +1,4 @@
-###SpHtmlHelper
+###SpHtmlHelper (Version-1.0)
 SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 #####Features
 ```javascript
@@ -97,5 +97,5 @@ SP.CopyPaste({
 ```javascript
 SP.debug();
 ```
-#####Documentation URL
-[SpHtmlHelper Decumentation](http://sumon-sarker.github.io/sp-html-helper)
+#####Documentation (Version-1.0)
+[SpHtmlHelper Decumentation](http://sumon-sarker.github.io/version-1.0/sp-html-helper)
