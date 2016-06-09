@@ -30,8 +30,7 @@
 		};
 		/*Add tag class config*/
 		this.add_tag_class_configs = {
-			targetAll 		: false,
-			urlMatch 		: false,
+			urlMatch 		: false, /*false or any URL string. Ex: '/en/sp-project/'*/
 			targetTag 		: 'CSS-SELECTOR',
 			className 		: 'CLASS-NAME'
 		};
@@ -106,22 +105,13 @@
 				return false;
 			};
 		};
-		if (options.targetAll){
-			objects = this.get_multiple_obj(options.targetTag);
-			if(objects.length){
-				for(object in objects){
-					this.add_class_to_tag(objects[object],options.className);
-				}
-			}else{
-				this.keep_debug_log('WARNING : AddClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
+		objects = this.get_multiple_obj(options.targetTag);
+		if(objects.length){
+			for(object in objects){
+				this.add_class_to_tag(objects[object],options.className);
 			}
 		}else{
-			objects = this.get_single_obj(options.targetTag);
-			if(objects){
-				this.add_class_to_tag(objects,options.className);
-			}else{
-				this.keep_debug_log('WARNING : AddClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
-			}
+			this.keep_debug_log('WARNING : AddClass {targetTag:"'+options.targetTag+'"} not found!','color:red;font-size:12px');
 		}
 	};
 
