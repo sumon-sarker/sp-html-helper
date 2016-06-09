@@ -80,7 +80,7 @@
 <p class="text-left">Default configuration</p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
 SP.RemoveClass({
-    targetAll       : false,
+    urlMatch        : false, /*false or url string. Ex: '/jpn/'*/
     targetTag       : 'CSS-SELECTOR',
     className       : 'YOUR-CLASS-NAME'
 });
@@ -90,6 +90,7 @@ SP.RemoveClass({
 	<p class="text-left">Example 1 [Remove class from body tag{For Every html pages}]</p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
 SP.RemoveClass({
+	urlMatch        : false, /*false or url string. Ex: '/eng/'*/
     targetTag       : 'body',
     className       : 'YOUR-EXISTING-CLASS-NAME'
 });
@@ -98,7 +99,7 @@ SP.RemoveClass({
 	<p class="text-left">Example 2 [Remove all class from all div tags {All Matching div tags}]</p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
 SP.RemoveClass({
-	targetAll       : true,
+	urlMatch        : false, /*false or url string. Ex: '/ban/'*/
     targetTag       : 'body div',
     className       : 'YOUR-EXISTING-CLASS-NAME'
 });

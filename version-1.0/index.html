@@ -291,7 +291,6 @@ Sp.AddMenu({
 <p class="text-left">Configuration : <span class="badge">dist/js/sp-html-helper-config.js</span></p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
 SP.AddClass({
-	targetAll 		: false,
 	urlMatch 		: false,
 	targetTag 		: 'CSS-SELECTOR',
 	className 		: 'YOUR-CLASS-NAME'
@@ -306,7 +305,7 @@ SP.AddClass({
 <p class="text-left">Configuration : <span class="badge">dist/js/sp-html-helper-config.js</span></p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
 SP.RemoveClass({
-	targetAll 		: false,
+	urlMatch        : false,
 	targetTag 		: 'CSS-SELECTOR',
 	className 		: 'YOUR-CLASS-NAME'
 });
@@ -320,6 +319,7 @@ SP.RemoveClass({
 <p class="text-left">Configuration : <span class="badge">dist/js/sp-html-helper-config.js</span></p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
 SP.RemoveInlineCss({
+	urlMatch        : false,
 	targetTag 		: 'CSS-SELECTOR',
 	targetCSS 		: 'width,height,float'
 });

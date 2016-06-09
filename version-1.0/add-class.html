@@ -80,7 +80,6 @@
 <p class="text-left">Default configuration</p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
 SP.AddClass({
-    targetAll       : false,
     urlMatch        : false,
     targetTag       : 'CSS-SELECTOR',
     className       : 'YOUR-CLASS-NAME'
@@ -91,6 +90,7 @@ SP.AddClass({
 	<p class="text-left">Example 1 [Adding Class to HTML tag {Only first matching tag}]</p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
 SP.AddClass({
+	urlMatch        : false,
     targetTag       : 'body',
     className       : 'helloWorld'
 });
@@ -114,7 +114,7 @@ SP.AddClass({
 	<p class="text-left">Example 3 [Adding Class to HTML tags {All matching tags}]</p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
 SP.AddClass({
-	targetAll 		: true,
+	urlMatch        : false,
     targetTag       : 'body div',
     className       : 'helloWorld'
 });
@@ -126,7 +126,6 @@ SP.AddClass({
 	<p class="text-left">Example 4 [Adding Class to HTML tag with all matching tags and matching URL]</p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
 SP.AddClass({
-	targetAll 		: true,
 	urlMatch        : '/personal/sp-html-helper/',
     targetTag       : 'body div',
     className       : 'helloWorld'
