@@ -98,4 +98,4 @@ SP.CopyPaste({
 SP.debug();
 ```
 #####Documentation (Version-1.0)
-[SpHtmlHelper Decumentation](http://sumon-sarker.github.io/version-1.0/sp-html-helper)
+[SpHtmlHelper Decumentation](http://sumon-sarker.github.io/sp-html-helper/version-1.0)
