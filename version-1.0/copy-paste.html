@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	
+	<title>SP HTML HELPER - Non-responsive Website Helper</title>
+	<link rel="shortcut icon" href="favicon.gif" />
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+	<style type="text/css">
+        .code {
+            width: 100%;
+            white-space: pre-wrap;
+            border: solid lightgrey 1px;
+            text-align: left;
+        }
+        .ace-twilight{
+        	padding: 10px;
+        }
+    </style>
+</head>
+
+<body class="home">
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				<a class="navbar-brand" href="index.html">SpHtmlHelper</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="index.html#features">Features</a></li>
+					<li><a href="getting-started.html">Getting Started</a></li>
+					<li><a href="menu-configuration.html">MenuConfig</a></li>
+					<li><a href="add-menu.html">AddMenu</a></li>
+					<li><a href="add-class.html">AddClass</a></li>
+					<li><a href="remove-class.html">RemoveClass</a></li>
+					<li><a href="remove-inline-css.html">RemoveInlineCSS</a></li>
+					<li><a href="copy-paste.html">CopyPaste</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div> 
+	<!-- /.navbar -->
+
+	<!-- Header -->
+	<header id="head">
+		<div class="container">
+			<div class="row">
+				<h1 class="lead">COPY PASTE</h1>
+				<p class="tagline">SpHtmlHelper is awesome, customizable and free</p>
+				<p>
+				<a href="https://github.com/sumon-sarker/sp-html-helper/zipball/master" class="btn btn-action btn-lg" role="button">ZIP DOWNLOAD&nbsp;</a>
+				<a href="https://github.com/sumon-sarker/sp-html-helper/tarball/master" class="btn btn-info btn-lg" role="button">TAR DOWNLOAD&nbsp;</a>
+				<a href="https://github.com/sumon-sarker/sp-html-helper" class="btn btn-success btn-lg" role="button">VIEW ON GITHUB</a>
+				</p>
+			</div>
+		</div>
+	</header>
+	<!-- /Header -->
+
+	<div id="gettingStarted" class="container text-center">
+		<br> <br>
+		<h2 class="thin">Copy Paste</h2>
+		
+
+<p class="text-left">Default configuration</p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.CopyPaste({
+    copyTarget      : 'CSS-SELECTOR',
+    pasteTarget     : 'CSS-SELECTOR',
+    pasteTagClass   : 'SpHtmlHelperCopyPaste'
+});
+</pre>
+	<br/>
+	<br/>
+<!-- 
+	<p class="text-left">Example 1 [Adding Class to HTML tag {Only first matching tag}]</p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.AddClass({
+	urlMatch        : false,
+    targetTag       : 'body',
+    className       : 'helloWorld'
+});
+</pre>
+	<p class="text-left">Result</p>
+	<img class="img-responsive" src="assets/images/4.png" alt="Add Class">
+	<hr/>
+	<br/>
+	<p class="text-left">Example 2 [Adding Class to HTML tag with matching URL {Only first matching tag}]</p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.AddClass({
+	urlMatch        : '/personal/sp-html-helper/',
+    targetTag       : 'body',
+    className       : 'helloWorld'
+});
+</pre>
+	<p class="text-left">Result</p>
+	<img class="img-responsive" src="assets/images/5.png" alt="Target URL">
+	<hr/>
+	<br/>
+	<p class="text-left">Example 3 [Adding Class to HTML tags {All matching tags}]</p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.AddClass({
+	urlMatch        : false,
+    targetTag       : 'body div',
+    className       : 'helloWorld'
+});
+</pre>
+	<p class="text-left">Result</p>
+	<img class="img-responsive" src="assets/images/6.png" alt="Target All">
+	<hr/>
+	<br/>
+	<p class="text-left">Example 4 [Adding Class to HTML tag with all matching tags and matching URL]</p>
+<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
+SP.AddClass({
+	urlMatch        : '/personal/sp-html-helper/',
+    targetTag       : 'body div',
+    className       : 'helloWorld'
+});
+</pre>
+	<p class="text-left">Result</p>
+	<img class="img-responsive" src="assets/images/7.png" alt="Target All">
+	<br/>
+-->
+	</div>	
+	<!-- Social links. @TODO: replace by link/instructions in template -->
+	<section id="social">
+		<div class="container">
+			<div class="wrapper clearfix">
+				<!-- AddThis Button BEGIN -->
+				<div class="addthis_toolbox addthis_default_style">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_tweet"></a>
+				<a class="addthis_button_linkedin_counter"></a>
+				<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+				</div>
+				<!-- AddThis Button END -->
+			</div>
+		</div>
+	</section>
+	<!-- /social links -->
+
+	<footer id="footer" class="top-space">
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="simplenav">
+								<a target="_blank" href="https://www.facebook.com/animation.gallary">Facebook</a> | 
+								<a target="_blank" href="https://twitter.com/sumonsarker74">Twitter</a> |
+								<a target="_blank" href="https://bd.linkedin.com/in/sumon-sarker-01702565">Linked In</a> |
+								<a target="_blank" href="https://plus.google.com/+SumonSarkerCoder">Google+</a>
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="text-right">
+								Copyright &copy; 2016, SpHtmlHelper. Designed by <a href="http://sumonsarker.com/" rel="designer">Sumon Sarker</a> 
+							</p>
+						</div>
+					</div>
+
+				</div> <!-- /row of widgets -->
+			</div>
+		</div>
+	</footer>
+
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="assets/js/headroom.min.js"></script>
+	<script src="assets/js/jQuery.headroom.min.js"></script>
+	<script src="assets/js/template.js"></script>
+	<script src="ace-master/demo/kitchen-sink/require.js"></script>
+	<script>
+		require.config({paths: { "ace" : "ace-master/lib/ace"}});
+		require(["ace/ace", "ace/ext/static_highlight"], function(ace) {
+		    var highlight = ace.require("ace/ext/static_highlight")
+		    var dom = ace.require("ace/lib/dom")
+		    function qsa(sel) {
+		        return Array.apply(null, document.querySelectorAll(sel));
+		    }
+		    qsa(".code").forEach(function (codeEl) {
+		        highlight(codeEl, {
+		            mode: codeEl.getAttribute("ace-mode"),
+		            theme: codeEl.getAttribute("ace-theme"),
+		            startLineNumber: 1,
+		            showGutter: codeEl.getAttribute("ace-gutter"),
+		            trim: true
+		        }, function (highlighted) {
+		            
+		        });
+		    });
+		})
+	</script>
+</body>
+</html>
