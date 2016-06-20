@@ -48,6 +48,7 @@
 			className 		: 'CLASS-NAME'
 		};
 		this.copy_paste_config = {
+			urlMatch 		: false,
 			copyTarget 		: 'CSS-SELECTOR',
 			pasteTarget 	: 'CSS-SELECTOR',
 			pasteTagClass 	: 'SpHtmlHelperCopyPaste'
@@ -185,6 +186,12 @@
 		options = this.copy_paste_config;
 		this.keep_debug_log("SpHtmlHelper CopyPaste Configuration!","font-size:15px;color:green");
 		this.keep_debug_log(options);
+		if (options.urlMatch) {
+			if(!this.get_match(options.urlMatch)){
+				this.keep_debug_log('WARNING : CopyPaste {urlMatch:"'+options.urlMatch+'"} not match with current url!','color:red;font-size:12px');
+				return false;
+			};
+		};
 		var copy_target 	= this.get_single_obj(options.copyTarget);
 		var paste_target 	= this.get_single_obj(options.pasteTarget);
 		if (!copy_target){
