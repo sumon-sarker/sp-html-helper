@@ -88,6 +88,7 @@ SP.RemoveInlineCss({
 #####Copy and Paste Html Tags
 ```javascript
 SP.CopyPaste({
+	urlMatch 		: false, /*Or any url string. Ex: '/jpn/'*/
 	copyTarget 		: 'CSS-SELECTOR',
 	pasteTarget 	: 'CSS-SELECTOR',
 	pasteTagClass 	: 'YOUR-NEW-CLASS'
