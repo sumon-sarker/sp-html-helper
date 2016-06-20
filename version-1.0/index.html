@@ -39,6 +39,11 @@
         	background-color: #718B88;
         	color: white;
         	cursor: pointer;
+        	transition: all .5s;
+        }
+        .thumbnail:hover{
+        	text-decoration: none;
+        	color: black;
         }
         .thumbnail p{
         	padding: 10px;
@@ -69,13 +74,13 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					<li><a href="index.html#features">Features</a></li>
-					<li><a href="index.html#gettingStarted">Getting Started</a></li>
-					<li><a href="index.html#menuConfig">MenuConfig</a></li>
-					<li><a href="index.html#addMenu">AddMenu</a></li>
-					<li><a href="index.html#addClass">AddClass</a></li>
-					<li><a href="index.html#removeClass">RemoveClass</a></li>
-					<li><a href="index.html#removeInlineCSS">RemoveInlineCSS</a></li>
-					<li><a href="index.html#removeInlineCSS">CopyPaste</a></li>
+					<li><a href="getting-started.html">Getting Started</a></li>
+					<li><a href="menu-configuration.html">MenuConfig</a></li>
+					<li><a href="add-menu.html">AddMenu</a></li>
+					<li><a href="add-class.html">AddClass</a></li>
+					<li><a href="remove-class.html">RemoveClass</a></li>
+					<li><a href="remove-inline-css.html">RemoveInlineCSS</a></li>
+					<li><a href="copy-paste.html">CopyPaste</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -120,7 +125,7 @@
 		<h2 class="thin text-center">Features</h2>
 		<div class="row">
 		  <div class="col-xs-6 col-md-3">
-		    <div class="thumbnail text-center">
+		    <a href="#menuConfig" class="thumbnail text-center">
 		      	<div class="feactureIcon"><span class="glyphicon glyphicon-cog"></span></div>
 		      	<div class="caption">
         			<h4>Menu Configuration</h4>
@@ -128,21 +133,21 @@
         		<p class="text-left">
         			Configure menu as Default, Multilingual Or as Existing menu.
         		</p>
-		    </div>
+		    </a>
 		  </div>
 		  <div class="col-xs-6 col-md-3">
-		    <div class="thumbnail text-center">
+		    <a href="#addMenu" class="thumbnail text-center">
 		      	<div class="feactureIcon"><span class="glyphicon glyphicon-th-list"></span></div>
 		      	<div class="caption">
-        			<h4>Create Menu</h4>
+        			<h4>Add Menu</h4>
         		</div>
         		<p class="text-left">
-        			Create menu anywhere on your page. Single or Multiple.
+        			Add menu anywhere on your page. Single or Multiple.
         		</p>
-		    </div>
+		    </a>
 		  </div>
 		  <div class="col-xs-6 col-md-3">
-		    <div class="thumbnail text-center">
+		    <a href="#addClass" class="thumbnail text-center">
 		      	<div class="feactureIcon"><span class="glyphicon glyphicon-plus-sign"></span></div>
 		      	<div class="caption">
         			<h4>Add Class</h4>
@@ -150,10 +155,10 @@
         		<p class="text-left">
         			Add CSS class anywhere in your HTML tag.
         		</p>
-		    </div>
+		    </a>
 		  </div>
 		  <div class="col-xs-6 col-md-3">
-		    <div class="thumbnail text-center">
+		    <a href="#removeClass" class="thumbnail text-center">
 		      	<div class="feactureIcon"><span class="glyphicon glyphicon-minus-sign"></span></div>
 		      	<div class="caption">
         			<h4>Remove CLass</h4>
@@ -161,10 +166,10 @@
         		<p class="text-left">
         			Remove any CSS class from your HTML tag.
         		</p>
-		    </div>
+		    </a>
 		  </div>
 		  <div class="col-xs-6 col-md-3">
-		    <div class="thumbnail text-center">
+		    <a href="#removeInlineCSS" class="thumbnail text-center">
 		      	<div class="feactureIcon"><span class="glyphicon glyphicon-certificate"></span></div>
 		      	<div class="caption">
         			<h4>Remove Inline CSS</h4>
@@ -172,10 +177,10 @@
         		<p class="text-left">
         			Remove inline CSS property from your HTML tag.
         		</p>
-		    </div>
+		    </a>
 		  </div>
 		  <div class="col-xs-6 col-md-3">
-		    <div class="thumbnail text-center">
+		    <a href="#copyPaste" class="thumbnail text-center">
 		      	<div class="feactureIcon"><span class="glyphicon glyphicon-copyright-mark"></span></div>
 		      	<div class="caption">
         			<h4>Copy Paste Tag</h4>
@@ -183,10 +188,10 @@
         		<p class="text-left">
         			Copy any paste your HTML tag into other HTML tag.
         		</p>
-		    </div>
+		    </a>
 		  </div>
 		  <div class="col-xs-6 col-md-3">
-		    <div class="thumbnail text-center">
+		    <a href="#debug" class="thumbnail text-center">
 		      	<div class="feactureIcon"><span class="glyphicon glyphicon-eye-open"></span></div>
 		      	<div class="caption">
         			<h4>Console Debugging</h4>
@@ -194,7 +199,7 @@
         		<p class="text-left">
         			Debug your script when development mode.
         		</p>
-		    </div>
+		    </a>
 		  </div>
 		  <div class="col-xs-6 col-md-3">
 		    <div class="thumbnail text-center upcoming">
@@ -424,6 +429,27 @@ SP.debug();
 		        });
 		    });
 		})
+
+		var clickAction = document.querySelectorAll('#features .thumbnail');
+		for(var i in clickAction){
+			clickAction[i].onclick = function(e){
+				console.log(this);
+				var href = this.getAttribute('data-title');
+				window.location = '#'+href;
+			}
+		}
+
+		$('a[href*="#"]').click(function(e) {
+		    e.preventDefault();
+		    var target = this.hash;
+		    $target = $(target);
+
+		    $('html, body').stop().animate({
+		        'scrollTop': $target.offset().top
+		    }, 900, 'swing', function () {
+		        window.location.hash = target;
+		    });
+		});
 	</script>
 </body>
 </html>
