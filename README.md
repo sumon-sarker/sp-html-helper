@@ -1,6 +1,6 @@
 ###SpHtmlHelper (Version-1.0)
 SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
-> Features
+#####  :earth_americas: Features
 ```javascript
 1. Create Menu Anywhere [Non Multilingual and Multilingual Website]
 2. Copy Existing Menu As SP Menu
@@ -9,7 +9,7 @@ SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 5. Copy/Paste HTML Markup
 6. Console Debugging For Developers
 ```
-> Basic HTML
+#####Basic HTML
 ```javascript
 <!DOCTYPE html>
 <html>
@@ -25,14 +25,14 @@ SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 </body>
 </html>
 ```
-> SpHtmlHelper Initializer [Required]
+#####SpHtmlHelper Initializer [Required]
 ```javascript
 var SP = new SpHtmlHelper({
 	debugMode 	: false,
 	screenSize 	: 768
 });
 ```
-> Menu Configuration [Optional, But Required For Multilingual Menu]
+#####Menu Configuration [Optional, But Required For Multilingual Menu]
 ```javascript
 SP.MenuConfig({
 	multiSiteMenu	: false,
@@ -43,7 +43,7 @@ SP.MenuConfig({
 	}
 });
 ```
-> Adding Menu
+#####Adding Menu
 ```javascript
 SP.AddMenu({
 	targetContainer : 'CSS-SELECTOR',
@@ -61,7 +61,7 @@ SP.AddMenu({
 	]
 });
 ```
-> Add Custom Class Name To HTML Tag
+#####Add Custom Class Name To HTML Tag
 ```javascript
 SP.AddClass({
 	urlMatch 		: false, /*Or any url string. Ex: '/jpn/'*/
@@ -69,7 +69,7 @@ SP.AddClass({
 	className 		: 'YOUR_CLASS_NAME'
 });
 ```
-> Remove Class Name From HTML Tag
+#####Remove Class Name From HTML Tag
 ```javascript
 SP.RemoveClass({
 	urlMatch 		: false, /*Or any url string. Ex: '/eng/'*/
@@ -77,7 +77,7 @@ SP.RemoveClass({
 	className 		: 'YOUR_CLASS_NAME'
 });
 ```
-> Remove Inline CSS From Html Tag
+#####Remove Inline CSS From Html Tag
 ```javascript
 SP.RemoveInlineCss({
 	urlMatch 		: false, /*Or any url string. Ex: '/jpn/'*/
@@ -85,7 +85,7 @@ SP.RemoveInlineCss({
 	targetCSS 		: 'width,height,float'
 });
 ```
-> Copy and Paste Html Tags
+#####Copy and Paste Html Tags
 ```javascript
 SP.CopyPaste({
 	copyTarget 		: 'CSS-SELECTOR',
@@ -93,9 +93,9 @@ SP.CopyPaste({
 	pasteTagClass 	: 'YOUR-NEW-CLASS'
 });
 ```
-> Developer Console Debugging
+#####Developer Console Debugging
 ```javascript
 SP.debug();
 ```
-> Documentation (Version-1.0)
+#####Documentation (Version-1.0)
 [SpHtmlHelper Decumentation](http://sumon-sarker.github.io/sp-html-helper/version-1.0)
