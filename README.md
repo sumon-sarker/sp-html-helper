@@ -9,7 +9,9 @@ SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 5. Copy/Paste HTML Markup
 6. Console Debugging For Developers
 ```
-#####Basic HTML
+#####  :blue_book: Documentation (Version-1.0)
+[SpHtmlHelper Decumentation](http://sumon-sarker.github.io/sp-html-helper/version-1.0)
+#####  :herb: Basic HTML
 ```javascript
 <!DOCTYPE html>
 <html>
@@ -25,14 +27,14 @@ SpHtmlHelper is a custom JavaScript helper for existing non-responsive websites.
 </body>
 </html>
 ```
-#####SpHtmlHelper Initializer [Required]
+#####  :balloon: SpHtmlHelper Initializer [Required]
 ```javascript
 var SP = new SpHtmlHelper({
 	debugMode 	: false,
 	screenSize 	: 768
 });
 ```
-#####Menu Configuration [Optional, But Required For Multilingual Menu]
+#####  :pager: Menu Configuration [Optional, But Required For Multilingual Menu]
 ```javascript
 SP.MenuConfig({
 	multiSiteMenu	: false,
@@ -43,7 +45,7 @@ SP.MenuConfig({
 	}
 });
 ```
-#####Adding Menu
+#####  :bulb: Adding Menu
 ```javascript
 SP.AddMenu({
 	targetContainer : 'CSS-SELECTOR',
@@ -61,7 +63,7 @@ SP.AddMenu({
 	]
 });
 ```
-#####Add Custom Class Name To HTML Tag
+#####  :nut_and_bolt: Add Custom Class Name To HTML Tag
 ```javascript
 SP.AddClass({
 	urlMatch 		: false, /*Or any url string. Ex: '/jpn/'*/
@@ -69,7 +71,7 @@ SP.AddClass({
 	className 		: 'YOUR_CLASS_NAME'
 });
 ```
-#####Remove Class Name From HTML Tag
+#####  :o: Remove Class Name From HTML Tag
 ```javascript
 SP.RemoveClass({
 	urlMatch 		: false, /*Or any url string. Ex: '/eng/'*/
@@ -77,7 +79,7 @@ SP.RemoveClass({
 	className 		: 'YOUR_CLASS_NAME'
 });
 ```
-#####Remove Inline CSS From Html Tag
+#####   :white_square_button: Remove Inline CSS From Html Tag
 ```javascript
 SP.RemoveInlineCss({
 	urlMatch 		: false, /*Or any url string. Ex: '/jpn/'*/
@@ -85,7 +87,7 @@ SP.RemoveInlineCss({
 	targetCSS 		: 'width,height,float'
 });
 ```
-#####Copy and Paste Html Tags
+#####  :pushpin: Copy and Paste Html Tags
 ```javascript
 SP.CopyPaste({
 	copyTarget 		: 'CSS-SELECTOR',
@@ -93,9 +95,9 @@ SP.CopyPaste({
 	pasteTagClass 	: 'YOUR-NEW-CLASS'
 });
 ```
-#####Developer Console Debugging
+#####  :football: Developer Console Debugging
 ```javascript
 SP.debug();
 ```
-#####Documentation (Version-1.0)
+#####  :blue_book: Documentation (Version-1.0)
 [SpHtmlHelper Decumentation](http://sumon-sarker.github.io/sp-html-helper/version-1.0)
