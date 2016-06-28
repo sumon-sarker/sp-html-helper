@@ -87,57 +87,29 @@ SP.CopyPaste({
 });
 </pre>
 	<br/>
-	<br/>
-<!-- 
-	<p class="text-left">Example 1 [Adding Class to HTML tag {Only first matching tag}]</p>
-<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
-SP.AddClass({
-	urlMatch        : false,
-    targetTag       : 'body',
-    className       : 'helloWorld'
-});
-</pre>
-	<p class="text-left">Result</p>
-	<img class="img-responsive" src="assets/images/4.png" alt="Add Class">
+	<p class="text-left">How it works</p>
+	<img class="img-responsive" src="assets/images/copypaste.png" alt="Add Class">
 	<hr/>
 	<br/>
-	<p class="text-left">Example 2 [Adding Class to HTML tag with matching URL {Only first matching tag}]</p>
+	<p class="text-left">Example 1 [Copy left sidebar content to right sidebar]</p>
 <pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
-SP.AddClass({
-	urlMatch        : '/personal/sp-html-helper/',
-    targetTag       : 'body',
-    className       : 'helloWorld'
+SP.CopyPaste({
+    copyTarget      : '#leftSidebar div',
+    pasteTarget     : '#rightSidebar',
+    pasteTagClass   : 'SpHtmlHelperCopyPaste'
 });
 </pre>
-	<p class="text-left">Result</p>
-	<img class="img-responsive" src="assets/images/5.png" alt="Target URL">
+	<img class="img-responsive" src="assets/images/copypaste2.png" alt="Target URL">
 	<hr/>
 	<br/>
-	<p class="text-left">Example 3 [Adding Class to HTML tags {All matching tags}]</p>
-<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
-SP.AddClass({
-	urlMatch        : false,
-    targetTag       : 'body div',
-    className       : 'helloWorld'
-});
-</pre>
 	<p class="text-left">Result</p>
-	<img class="img-responsive" src="assets/images/6.png" alt="Target All">
-	<hr/>
+	<img class="img-responsive" src="assets/images/copypaste.png" alt="Target URL">
+
 	<br/>
-	<p class="text-left">Example 4 [Adding Class to HTML tag with all matching tags and matching URL]</p>
-<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/twilight">
-SP.AddClass({
-	urlMatch        : '/personal/sp-html-helper/',
-    targetTag       : 'body div',
-    className       : 'helloWorld'
-});
-</pre>
-	<p class="text-left">Result</p>
-	<img class="img-responsive" src="assets/images/7.png" alt="Target All">
 	<br/>
--->
-	</div>	
+	<br/>
+	<p class="alert alert-info"><strong>NOTE : </strong> <span class="badge">urlMatch</span> and <span class="badge">pasteTagClass</span> are optional</p>
+</div>
 	<!-- Social links. @TODO: replace by link/instructions in template -->
 	<section id="social">
 		<div class="container">
